@@ -1,0 +1,13 @@
+.. HIPSR documentation master file, created by
+
+Gateware
+========
+
+Overview
+--------
+
+Pulsar modes
+------------
+
+Spectral line modes
+-------------------

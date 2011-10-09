@@ -1,0 +1,223 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Hardware &mdash; HIPSR v1.0 documentation</title>
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="HIPSR v1.0 documentation" href="index.html" />
+    <link rel="next" title="Gateware" href="gateware.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="gateware.html" title="Gateware"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="introduction.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">HIPSR v1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hardware">
+<h1>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h1>
+<p>This page details the hardware in use in the HIPSR system. HIPSR consists of digitizer
+cards; FPGA digital processing boards for &#8220;low-level&#8221; DSP; a 10GbE switch for data
+interconnect; and, a CPU/GPU cluster for &#8220;high-level&#8221; DSP and data storage.</p>
+<div class="section" id="casper-roach-boards">
+<h2>CASPER ROACH boards<a class="headerlink" href="#casper-roach-boards" title="Permalink to this headline">¶</a></h2>
+<p>ROACH (Reconfigurable Open Architecture Computing Hardware) is a standalone
+FPGA processing board, developed by the Collaboration for Astronomy Signal Processing
+and Electronics Research.</p>
+<p>The centrepiece of ROACH is a Xilinx Virtex 5 FPGA (SX95T).
+A separate PowerPC runs Linux and is used to control the board (program the FPGA
+and allow interfacing between the FPGA &#8220;software registers/BRAMs/FIFOs&#8221; and external
+devices using Ethernet).</p>
+<p>Two quad data rate (QDR) SRAMs provide high-speed, medium-capacity memory
+(specifically for doing corner-turns), and one DDR2 DIMM provides slower-speed,
+high-capacity buffer memory for the FPGA. The PowerPC has an independent DDR2 DIMM
+in order to boot Linux/BORPH.</p>
+<p>The two Z-DOK connectors allow ADC, DAC and other interface cards to be attached to the
+FPGA, in the same manner as the IBOB allowed (with backwards compatibility for the ADC
+boards used with the IBOB).</p>
+<p>Four CX4 connectors provide a total of 40Gbits/sec bandwidth for connecting ROACH boards
+together, or connecting them to other XAUI/10GbE-capable devices (such as
+computers with 10GbE NICs and 10GbE switches).</p>
+<p>For more detailed descriptions, see:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://casper.berkeley.edu/wiki/Main_Page">https://casper.berkeley.edu/wiki/Main_Page</a></li>
+<li><a class="reference external" href="https://casper.berkeley.edu/wiki/ROACH">https://casper.berkeley.edu/wiki/ROACH</a></li>
+<li><a class="reference external" href="https://casper.berkeley.edu/wiki/ROACH_Architecture">https://casper.berkeley.edu/wiki/ROACH_Architecture</a></li>
+</ul>
+</div>
+<div class="section" id="iadc-digitizer-cards">
+<h2>iADC digitizer cards<a class="headerlink" href="#iadc-digitizer-cards" title="Permalink to this headline">¶</a></h2>
+<p>Each HIPSR ROACH board is populated with an iADC digitizer card. These cards are
+based on the Atmel/e2V AT84AD001B 8-bit Dual 1Gsps ADC:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://www.e2v.com/assets/media/files/documents/broadband-data-converters/doc0817I.pdf">http://www.e2v.com/assets/media/files/documents/broadband-data-converters/doc0817I.pdf</a></li>
+</ul>
+<p>More information about the card is available at:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://casper.berkeley.edu/wiki/ADC2x1000-8">https://casper.berkeley.edu/wiki/ADC2x1000-8</a></li>
+</ul>
+</div>
+<div class="section" id="cisco-switch">
+<h2>Cisco switch<a class="headerlink" href="#cisco-switch" title="Permalink to this headline">¶</a></h2>
+<p>We will be loaning a CISCO C4900M switch from CASS, with the following specs:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="77%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Item</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>WS-C4900M</td>
+<td>CISCO Base system with 8 X2 ports and 2 half slots</td>
+</tr>
+<tr><td>S49MIPBK9-15002SG</td>
+<td>CISCO Cisco CAT4900M IOS IP BASE SSH</td>
+</tr>
+<tr><td>PWR-C49M-1000AC</td>
+<td>CISCO 4900M AC power supply, 1000 watts</td>
+</tr>
+<tr><td>PWR-C49M-1000AC/2</td>
+<td>CISCO Redundant AC PS for 4900M</td>
+</tr>
+<tr><td>CAB-AS3112-C15-AU</td>
+<td>CISCO AS-3112 to IEC-C15 8ft Aus</td>
+</tr>
+<tr><td>MEM-C4K-FLD128M</td>
+<td>CISCO Catalyst 4900M Compact Flash, 128MB Option</td>
+</tr>
+<tr><td>4900M-X2-CVR</td>
+<td>CISCO X2 cover on 4900M</td>
+</tr>
+<tr><td>WS-X4908-10GE=</td>
+<td>CISCO 8 port 2:1 10GbE (X2) line card for 4900M series
+(this is the expansion module - there are two slots
+in each chassis)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hipsr-servers">
+<h2>HIPSR Servers<a class="headerlink" href="#hipsr-servers" title="Permalink to this headline">¶</a></h2>
+<p>Todo</p>
+</div>
+<div class="section" id="sync-pulse-distribution">
+<h2>Sync Pulse Distribution<a class="headerlink" href="#sync-pulse-distribution" title="Permalink to this headline">¶</a></h2>
+<p>Todo</p>
+</div>
+<div class="section" id="clock-distribution-system">
+<h2>Clock Distribution System<a class="headerlink" href="#clock-distribution-system" title="Permalink to this headline">¶</a></h2>
+<p>Todo</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Hardware</a><ul>
+<li><a class="reference internal" href="#casper-roach-boards">CASPER ROACH boards</a></li>
+<li><a class="reference internal" href="#iadc-digitizer-cards">iADC digitizer cards</a></li>
+<li><a class="reference internal" href="#cisco-switch">Cisco switch</a></li>
+<li><a class="reference internal" href="#hipsr-servers">HIPSR Servers</a></li>
+<li><a class="reference internal" href="#sync-pulse-distribution">Sync Pulse Distribution</a></li>
+<li><a class="reference internal" href="#clock-distribution-system">Clock Distribution System</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="introduction.html"
+                        title="previous chapter">Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gateware.html"
+                        title="next chapter">Gateware</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/hardware.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="gateware.html" title="Gateware"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="introduction.html" title="Introduction"
+             >previous</a> |</li>
+        <li><a href="index.html">HIPSR v1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Danny Price.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+    </div>
+  </body>
+</html>
