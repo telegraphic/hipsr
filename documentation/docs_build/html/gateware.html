@@ -69,16 +69,143 @@ and abstracts the Xilinx implementation details behind a one-click compile inter
 </div>
 <div class="section" id="pulsar-modes">
 <h2>Pulsar modes<a class="headerlink" href="#pulsar-modes" title="Permalink to this headline">¶</a></h2>
-<p>The BPSR pulsar modes are based on the Packetized Astronomy Signal Processor
-firmware designed by Peter MacMahon and ported to ROACH by Terry Filiba.</p>
+<p>The CASPSR firmware is based on the Packetized Astronomy Signal Processor
+firmware designed by Terry Filiba. The BPSR firmware is based on the Parspec
+firmware designed by Peter Macmahon and ported to ROACH by Danny Price.</p>
+<div class="section" id="packetized-astronomy-signal-processor">
+<h3>Packetized Astronomy Signal Processor<a class="headerlink" href="#packetized-astronomy-signal-processor" title="Permalink to this headline">¶</a></h3>
+<p>CASPSR digitizes a 400MHz bandwidth, and sends raw ADC data to the CPU/GPU backend.</p>
 <ul class="simple">
 <li><a class="reference external" href="https://casper.berkeley.edu/wiki/Packetized_Astronomy_Signal_Processor">https://casper.berkeley.edu/wiki/Packetized_Astronomy_Signal_Processor</a></li>
+</ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Register</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>todo</td>
+<td>todo.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resource utilization summary</strong></p>
+<p>This design hasn&#8217;t been compiled yet!</p>
+</div>
+<div class="section" id="parkes-spectrometer-parspec">
+<h3>Parkes Spectrometer (Parspec)<a class="headerlink" href="#parkes-spectrometer-parspec" title="Permalink to this headline">¶</a></h3>
+<p><strong>Current gateware: parspec_01_2011_Oct_12_1520.bof</strong></p>
+<p>Parspec is a 400MHz bandwidth, 1024 channel, 2-tap polyphase filterbank based
+spectrometer.</p>
+<ul class="simple">
 <li><a class="reference external" href="https://casper.berkeley.edu/wiki/Parspec">https://casper.berkeley.edu/wiki/Parspec</a></li>
 </ul>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="80%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Register</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>todo</td>
+<td>todo.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Resource utilization summary</strong></p>
+<p>Parspec was designed and spec&#8217;d to fit onto an iBOB; now it&#8217;s been ported to
+ROACH it feels positively roomy.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="59%" />
+<col width="32%" />
+<col width="8%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Logic distribution and feature utilization</th>
+<th class="head">&nbsp;</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Number of occupied Slices:</td>
+<td>6,171 out of  14,720</td>
+<td>41%</td>
+</tr>
+<tr><td>Number of LUT Flip Flop pairs used:</td>
+<td>20,028</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Number with an unused Flip Flop:</td>
+<td>3,139 out of  20,028</td>
+<td>15%</td>
+</tr>
+<tr><td>Number with an unused LUT:</td>
+<td>5,881 out of  20,028</td>
+<td>29%</td>
+</tr>
+<tr><td>Number of fully used LUT-FF pairs:</td>
+<td>11,008 out of  20,028</td>
+<td>54%</td>
+</tr>
+<tr><td>Number of unique control sets:</td>
+<td>349</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Number of slice register sites lost</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>to control set restrictions:</td>
+<td>728 out of  58,880</td>
+<td>1%</td>
+</tr>
+<tr><td>Number of BlockRAM/FIFO:</td>
+<td>85 out of     244</td>
+<td>34%</td>
+</tr>
+<tr><td>Number using BlockRAM only:</td>
+<td>85</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Total primitives used:</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Number of 36k BlockRAM used:</td>
+<td>10</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Number of 18k BlockRAM used:</td>
+<td>119</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Total Memory used (KB):</td>
+<td>2,502 out of   8,784</td>
+<td>28%</td>
+</tr>
+<tr><td>Number of DSP48Es:</td>
+<td>164 out of     640</td>
+<td>25%</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="section" id="spectral-line-modes">
 <h2>Spectral line modes<a class="headerlink" href="#spectral-line-modes" title="Permalink to this headline">¶</a></h2>
-<p><strong>firmware: hipsr_16_2011_Oct_01_0824.bof</strong></p>
+<div class="section" id="hipsr-wideband-spectrometer">
+<h3>HIPSR Wideband Spectrometer<a class="headerlink" href="#hipsr-wideband-spectrometer" title="Permalink to this headline">¶</a></h3>
+<p><strong>Current gateware: hipsr_16_2011_Oct_01_0824.bof</strong></p>
 <p>This is a 400MHz bandwidth, 8192 channel polyphase filterbank. The filterbank
 is 4-taps, with hamming window coefficients.</p>
 <div class="figure align-center">
@@ -195,24 +322,13 @@ amount of DSP48E logic left.</p>
 <td>6,876 out of   8,784</td>
 <td>78%</td>
 </tr>
-<tr><td>Number of BUFG/BUFGCTRLs:</td>
-<td>3 out of      32</td>
-<td>9%</td>
-</tr>
-<tr><td>Number used as BUFGs:</td>
-<td>3</td>
-<td>&nbsp;</td>
-</tr>
-<tr><td>Number of DCM_ADVs:</td>
-<td>2 out of      12</td>
-<td>16%</td>
-</tr>
 <tr><td>Number of DSP48Es:</td>
 <td>222 out of     640</td>
 <td>34%</td>
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 </div>
 
@@ -226,8 +342,15 @@ amount of DSP48E logic left.</p>
   <ul>
 <li><a class="reference internal" href="#">Gateware</a><ul>
 <li><a class="reference internal" href="#overview">Overview</a></li>
-<li><a class="reference internal" href="#pulsar-modes">Pulsar modes</a></li>
-<li><a class="reference internal" href="#spectral-line-modes">Spectral line modes</a></li>
+<li><a class="reference internal" href="#pulsar-modes">Pulsar modes</a><ul>
+<li><a class="reference internal" href="#packetized-astronomy-signal-processor">Packetized Astronomy Signal Processor</a></li>
+<li><a class="reference internal" href="#parkes-spectrometer-parspec">Parkes Spectrometer (Parspec)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spectral-line-modes">Spectral line modes</a><ul>
+<li><a class="reference internal" href="#hipsr-wideband-spectrometer">HIPSR Wideband Spectrometer</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

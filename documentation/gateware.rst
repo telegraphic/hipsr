@@ -27,23 +27,74 @@ The CASPSR firmware is based on the Packetized Astronomy Signal Processor
 firmware designed by Terry Filiba. The BPSR firmware is based on the Parspec
 firmware designed by Peter Macmahon and ported to ROACH by Danny Price.
 
-**Packetized Astronomy Signal Processor**
+Packetized Astronomy Signal Processor
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 CASPSR digitizes a 400MHz bandwidth, and sends raw ADC data to the CPU/GPU backend.
 
 * https://casper.berkeley.edu/wiki/Packetized_Astronomy_Signal_Processor
 
-**Parkes Spectrometer (Parspec) **
+===============  ============================================================
+Register          Description
+===============  ============================================================
+todo              todo.
+
+===============  ============================================================
+
+**Resource utilization summary**
+
+This design hasn't been compiled yet!
+
+Parkes Spectrometer (Parspec)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Current gateware: parspec_01_2011_Oct_12_1520.bof**
 
 Parspec is a 400MHz bandwidth, 1024 channel, 2-tap polyphase filterbank based 
-spectrometer
+spectrometer. 
 
 * https://casper.berkeley.edu/wiki/Parspec
 
+===============  ============================================================
+Register          Description
+===============  ============================================================
+todo              todo.
+
+===============  ============================================================
+
+**Resource utilization summary**
+
+Parspec was designed and spec'd to fit onto an iBOB; now it's been ported to
+ROACH it feels positively roomy. 
+
+============================================  ========================  ======
+Logic distribution and feature utilization
+============================================  ========================  ======
+  Number of occupied Slices:                     6,171 out of  14,720     41%
+  Number of LUT Flip Flop pairs used:           20,028                   
+    Number with an unused Flip Flop:             3,139 out of  20,028     15%
+    Number with an unused LUT:                   5,881 out of  20,028     29%
+    Number of fully used LUT-FF pairs:          11,008 out of  20,028     54%
+    Number of unique control sets:                 349                   
+    Number of slice register sites lost                                  
+      to control set restrictions:                 728 out of  58,880      1%
+  Number of BlockRAM/FIFO:                          85 out of     244     34%
+    Number using BlockRAM only:                     85                   
+    Total primitives used:                                               
+      Number of 36k BlockRAM used:                  10                   
+      Number of 18k BlockRAM used:                 119                   
+    Total Memory used (KB):                      2,502 out of   8,784     28%
+  Number of DSP48Es:                               164 out of     640     25%
+============================================  ========================  ======  
+
+  
 Spectral line modes
 -------------------
 
-**firmware: hipsr_16_2011_Oct_01_0824.bof**
+HIPSR Wideband Spectrometer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Current gateware: hipsr_16_2011_Oct_01_0824.bof**
 
 This is a 400MHz bandwidth, 8192 channel polyphase filterbank. The filterbank
 is 4-taps, with hamming window coefficients. 
@@ -103,8 +154,5 @@ Logic distribution and feature utilization
       Number of 36k BlockRAM used:                 185                    
       Number of 18k BlockRAM used:                  12                    
     Total Memory used (KB):                      6,876 out of   8,784     78%
-  Number of BUFG/BUFGCTRLs:                          3 out of      32      9%
-    Number used as BUFGs:                            3                    
-  Number of DCM_ADVs:                                2 out of      12     16%
   Number of DSP48Es:                               222 out of     640     34%
 ============================================  ========================  ======
