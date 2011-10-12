@@ -23,10 +23,21 @@ For installation instructions, see the MSSGE Toolflow page:
 Pulsar modes
 ------------
 
-The BPSR pulsar modes are based on the Packetized Astronomy Signal Processor
-firmware designed by Peter MacMahon and ported to ROACH by Terry Filiba.
+The CASPSR firmware is based on the Packetized Astronomy Signal Processor
+firmware designed by Terry Filiba. The BPSR firmware is based on the Parspec
+firmware designed by Peter Macmahon and ported to ROACH by Danny Price.
+
+**Packetized Astronomy Signal Processor**
+
+CASPSR digitizes a 400MHz bandwidth, and sends raw ADC data to the CPU/GPU backend.
 
 * https://casper.berkeley.edu/wiki/Packetized_Astronomy_Signal_Processor
+
+**Parkes Spectrometer (Parspec) **
+
+Parspec is a 400MHz bandwidth, 1024 channel, 2-tap polyphase filterbank based 
+spectrometer
+
 * https://casper.berkeley.edu/wiki/Parspec
 
 Spectral line modes
