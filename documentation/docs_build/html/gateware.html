@@ -72,9 +72,11 @@ and abstracts the Xilinx implementation details behind a one-click compile inter
 <p>The CASPSR firmware is based on the Packetized Astronomy Signal Processor
 firmware designed by Terry Filiba. The BPSR firmware is based on the Parspec
 firmware designed by Peter Macmahon and ported to ROACH by Danny Price.</p>
-<div class="section" id="packetized-astronomy-signal-processor">
-<h3>Packetized Astronomy Signal Processor<a class="headerlink" href="#packetized-astronomy-signal-processor" title="Permalink to this headline">¶</a></h3>
-<p>CASPSR digitizes a 400MHz bandwidth, and sends raw ADC data to the CPU/GPU backend.</p>
+<div class="section" id="adc-to-ten-gigabit-ethernet">
+<h3>ADC to Ten Gigabit Ethernet<a class="headerlink" href="#adc-to-ten-gigabit-ethernet" title="Permalink to this headline">¶</a></h3>
+<p><strong>Current gateware: adc_to_10gbe_2011_Oct_18_1156.bof</strong></p>
+<p>CASPSR uses a stripped out PASP. It has a more accurate reset, and just turns the ADC input
+into 10GE packets.</p>
 <ul class="simple">
 <li><a class="reference external" href="https://casper.berkeley.edu/wiki/Packetized_Astronomy_Signal_Processor">https://casper.berkeley.edu/wiki/Packetized_Astronomy_Signal_Processor</a></li>
 </ul>
@@ -95,7 +97,79 @@ firmware designed by Peter Macmahon and ported to ROACH by Danny Price.</p>
 </tbody>
 </table>
 <p><strong>Resource utilization summary</strong></p>
-<p>This design hasn&#8217;t been compiled yet!</p>
+<p>This design fitted onto an iBOB, so unsuprisingly isn&#8217;t pushing the ROACH in any
+way.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="59%" />
+<col width="32%" />
+<col width="8%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Logic distribution and feature utilization</th>
+<th class="head">&nbsp;</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Number of occupied Slices:</td>
+<td>6,258 out of  14,720</td>
+<td>42%</td>
+</tr>
+<tr><td>Number of LUT Flip Flop pairs used:</td>
+<td>16,637</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Number with an unused Flip Flop:</td>
+<td>6,747 out of  16,637</td>
+<td>40%</td>
+</tr>
+<tr><td>Number with an unused LUT:</td>
+<td>3,378 out of  16,637</td>
+<td>20%</td>
+</tr>
+<tr><td>Number of fully used LUT-FF pairs:</td>
+<td>6,512 out of  16,637</td>
+<td>39%</td>
+</tr>
+<tr><td>Number of unique control sets:</td>
+<td>459</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Number of slice register sites lost</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>to control set restrictions:</td>
+<td>1,041 out of  58,880</td>
+<td>1%</td>
+</tr>
+<tr><td>Number of BlockRAM/FIFO:</td>
+<td>21 out of     244</td>
+<td>8%</td>
+</tr>
+<tr><td>Number using BlockRAM only:</td>
+<td>21</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Total primitives used:</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Number of 36k BlockRAM used:</td>
+<td>12</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Number of 18k BlockRAM used:</td>
+<td>16</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>Total Memory used (KB):</td>
+<td>720 out of   8,784</td>
+<td>8%</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="parkes-spectrometer-parspec">
 <h3>Parkes Spectrometer (Parspec)<a class="headerlink" href="#parkes-spectrometer-parspec" title="Permalink to this headline">¶</a></h3>
@@ -343,7 +417,7 @@ amount of DSP48E logic left.</p>
 <li><a class="reference internal" href="#">Gateware</a><ul>
 <li><a class="reference internal" href="#overview">Overview</a></li>
 <li><a class="reference internal" href="#pulsar-modes">Pulsar modes</a><ul>
-<li><a class="reference internal" href="#packetized-astronomy-signal-processor">Packetized Astronomy Signal Processor</a></li>
+<li><a class="reference internal" href="#adc-to-ten-gigabit-ethernet">ADC to Ten Gigabit Ethernet</a></li>
 <li><a class="reference internal" href="#parkes-spectrometer-parspec">Parkes Spectrometer (Parspec)</a></li>
 </ul>
 </li>

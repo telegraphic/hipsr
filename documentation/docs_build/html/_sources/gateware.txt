@@ -27,10 +27,13 @@ The CASPSR firmware is based on the Packetized Astronomy Signal Processor
 firmware designed by Terry Filiba. The BPSR firmware is based on the Parspec
 firmware designed by Peter Macmahon and ported to ROACH by Danny Price.
 
-Packetized Astronomy Signal Processor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ADC to Ten Gigabit Ethernet
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-CASPSR digitizes a 400MHz bandwidth, and sends raw ADC data to the CPU/GPU backend.
+**Current gateware: adc_to_10gbe_2011_Oct_18_1156.bof**
+
+CASPSR uses a stripped out PASP. It has a more accurate reset, and just turns the ADC input 
+into 10GE packets. 
 
 * https://casper.berkeley.edu/wiki/Packetized_Astronomy_Signal_Processor
 
@@ -43,7 +46,28 @@ todo              todo.
 
 **Resource utilization summary**
 
-This design hasn't been compiled yet!
+This design fitted onto an iBOB, so unsuprisingly isn't pushing the ROACH in any
+way.
+
+============================================  ========================  ======
+Logic distribution and feature utilization
+============================================  ========================  ======
+  Number of occupied Slices:                     6,258 out of  14,720     42%
+  Number of LUT Flip Flop pairs used:           16,637                    
+    Number with an unused Flip Flop:             6,747 out of  16,637     40%
+    Number with an unused LUT:                   3,378 out of  16,637     20%
+    Number of fully used LUT-FF pairs:           6,512 out of  16,637     39%
+    Number of unique control sets:                 459                    
+    Number of slice register sites lost                                   
+      to control set restrictions:               1,041 out of  58,880      1%
+  Number of BlockRAM/FIFO:                          21 out of     244      8%
+    Number using BlockRAM only:                     21                    
+    Total primitives used:                                                
+      Number of 36k BlockRAM used:                  12                    
+      Number of 18k BlockRAM used:                  16                    
+    Total Memory used (KB):                        720 out of   8,784      8%
+============================================  ========================  ======
+
 
 Parkes Spectrometer (Parspec)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
