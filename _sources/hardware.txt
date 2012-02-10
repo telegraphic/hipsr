@@ -10,7 +10,7 @@ CASPER ROACH boards
 -------------------
 
 .. figure:: ROACH_IO.png
-    :scale: 30%
+    :scale: 100%
     :alt: HIPSR Architecture
     :align: center
     
