@@ -8,7 +8,7 @@ cards; FPGA digital processing boards for "low-level" DSP; a 10GbE switch for da
 interconnect; and, a CPU/GPU cluster for "high-level" DSP and data storage.
 
 .. figure:: HIPSR_arch.png
-    :scale: 30%
+    :scale: 100%
     :alt: HIPSR Architecture
     :align: center
     

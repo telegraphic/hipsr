@@ -7,7 +7,7 @@ Welcome to HIPSR's documentation!
 =================================
 
 .. figure:: parkes_focus.jpg
-    :scale: 100%
+    :scale: 50%
     :alt: HIPSR documentation
     :align: center
 
