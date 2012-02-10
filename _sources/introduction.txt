@@ -1,11 +1,13 @@
-.. HIPSR documentation master file, created by
-
 Introduction
 ============
 
-This page details the hardware in use in the HIPSR system. HIPSR consists of digitizer
-cards; FPGA digital processing boards for "low-level" DSP; a 10GbE switch for data
-interconnect; and, a CPU/GPU cluster for "high-level" DSP and data storage.
+HIPSR is a new reconfigurable digital backend for the Parkes multibeam receiver.
+
+Architecture
+------------
+
+HIPSR consists of digitizer cards; FPGA digital processing boards for "low-level" DSP; 
+a 10GbE switch for data interconnect; and, a CPU/GPU cluster for "high-level" DSP and data storage. The network architecture is shown in the figure below:
 
 .. figure:: HIPSR_arch.png
     :scale: 100%
