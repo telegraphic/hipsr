@@ -52,28 +52,12 @@
             
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>HIPSR documentation.</p>
-<div class="highlight-python"><pre>Options:
-  -h, --help            show this help message and exit
-  -p PORT, --port=PORT  Select KATCP port. Default is 7147
-  -i HOSTIP, --hostip=HOSTIP
-                        change host IP address to run server. Default is
-                        localhost (127.0.0.1)
-  -P HOSTPORT, --hostport=HOSTPORT
-                        change host port for server. Default is 8080</pre>
-</div>
-<div class="highlight-ipython"><div class="highlight"><pre><span class="gp">In [69]: </span><span class="n">lines</span> <span class="o">=</span> <span class="n">plot</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-
-<span class="gp">In [70]: </span><span class="n">setp</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
-<span class="go">  alpha: float</span>
-<span class="go">  animated: [True | False]</span>
-<span class="go">  antialiased or aa: [True | False]</span>
-<span class="go">  ...snip</span>
-</pre></div>
-</div>
-<img src="_images/mathmpl/math-d9a8b00dd5.png" class="center" /><p>(<a class="reference external" href=".//introduction-1.py">Source code</a>, <a class="reference external" href=".//introduction-1.png">png</a>, <a class="reference external" href=".//introduction-1.hires.png">hires.png</a>, <a class="reference external" href=".//introduction-1.pdf">pdf</a>)</p>
-<div class="figure">
-<img alt="_images/introduction-1.png" src="_images/introduction-1.png" />
+<p>This page details the hardware in use in the HIPSR system. HIPSR consists of digitizer
+cards; FPGA digital processing boards for &#8220;low-level&#8221; DSP; a 10GbE switch for data
+interconnect; and, a CPU/GPU cluster for &#8220;high-level&#8221; DSP and data storage.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/HIPSR_arch.png"><img alt="HIPSR Architecture" src="_images/HIPSR_arch.png" style="width: 241.8px; height: 160.8px;" /></a>
+<p class="caption"><em>Network architecture for HIPSR.</em></p>
 </div>
 </div>
 
