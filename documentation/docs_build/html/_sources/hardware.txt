@@ -9,6 +9,14 @@ interconnect; and, a CPU/GPU cluster for "high-level" DSP and data storage.
 CASPER ROACH boards
 -------------------
 
+.. figure:: ROACH_IO.png
+    :scale: 100%
+    :alt: HIPSR Architecture
+    :align: center
+    
+    *Roach Input/Output*
+
+
 ROACH (Reconfigurable Open Architecture Computing Hardware) is a standalone 
 FPGA processing board, developed by the Collaboration for Astronomy Signal Processing
 and Electronics Research.

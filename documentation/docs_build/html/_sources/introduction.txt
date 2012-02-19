@@ -1,41 +1,19 @@
-.. HIPSR documentation master file, created by
-
 Introduction
 ============
 
-HIPSR documentation.
+HIPSR is a new reconfigurable digital backend for the Parkes multibeam receiver. HIPSR is capable of running many different firmware modes, so can be used for both high resolution, wide bandwidth spectral line observations, and high time resolution pulsar observations.
 
-.. sourcecode:: python
+Architecture
+------------
 
-    Options:
-      -h, --help            show this help message and exit
-      -p PORT, --port=PORT  Select KATCP port. Default is 7147
-      -i HOSTIP, --hostip=HOSTIP
-                            change host IP address to run server. Default is
-                            localhost (127.0.0.1)
-      -P HOSTPORT, --hostport=HOSTPORT
-                            change host port for server. Default is 8080
-.. sourcecode:: ipython
+HIPSR consists of digitizer cards; FPGA digital processing boards for "low-level" DSP; 
+a 10GbE switch for data interconnect; and, a CPU/GPU cluster for "high-level" DSP and data storage. The network architecture is shown in the figure below:
 
-    In [69]: lines = plot([1,2,3])
+.. figure:: HIPSR_arch.png
+    :scale: 100%
+    :alt: HIPSR Architecture
+    :align: center
+    
+    *Network architecture for HIPSR.*
 
-    In [70]: setp(lines)
-      alpha: float
-      animated: [True | False]
-      antialiased or aa: [True | False]
-      ...snip
 
-.. math::
-
-  W^{3\beta}_{\delta_1 \rho_1 \sigma_2} \approx U^{3\beta}_{\delta_1 \rho_1}
-  
-  
-.. plot::
-
-   import matplotlib.pyplot as plt
-   import numpy as np
-   x = np.random.randn(1000)
-   plt.hist( x, 20)
-   plt.grid()
-   plt.title(r'Normal: $\mu=%.2f, \sigma=%.2f$'%(x.mean(), x.std()))
-   plt.show()

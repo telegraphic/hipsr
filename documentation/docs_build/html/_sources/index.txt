@@ -6,7 +6,6 @@
 Welcome to HIPSR's documentation!
 =================================
 
-
 Contents:
 
 .. toctree::
@@ -23,4 +22,10 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+.. figure:: parkes_focus.jpg
+    :scale: 50%
+    :alt: HIPSR documentation
+    :align: center
+
 
