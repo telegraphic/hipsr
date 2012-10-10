@@ -1,0 +1,200 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Noise diode control &mdash; HIPSR 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="HIPSR 1.0 documentation" href="index.html" />
+    <link rel="next" title="Software" href="software.html" />
+    <link rel="prev" title="Gateware" href="gateware.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="software.html" title="Software"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gateware.html" title="Gateware"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">HIPSR 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="noise-diode-control">
+<h1>Noise diode control<a class="headerlink" href="#noise-diode-control" title="Permalink to this headline">¶</a></h1>
+<p>To get noise adding radiometer modes working, the noise diode will need to be controlled by HIPSR.
+To do so, a &#8220;master&#8221; roach board will control the noise diode, using square wave generator gateware
+tied to the GPIO output on the ROACH board.</p>
+<p>The sections that follow give more detail into how this is/will be achieved.</p>
+<div class="section" id="firmware-overview">
+<h2>Firmware overview<a class="headerlink" href="#firmware-overview" title="Permalink to this headline">¶</a></h2>
+<p>While the firmware is still in development, here&#8217;s the general idea:</p>
+<ul class="simple">
+<li>Sync all boards up using the 1PPS and some sync pulse logic.</li>
+<li>Generate a square wave to control the noise diode</li>
+<li>Take the ADC data, do a small FFT and take the power.</li>
+<li>Demux the FFT data into ON and OFF. This is controlled by the square wave generator.</li>
+<li>Accumulate the ON and OFF spectra</li>
+<li>Store the sum ON-OFF for each channel in a shared BRAM.</li>
+</ul>
+<p>Note that while only one board controls the noise diode, all boards require square wave generators.
+The other option would be to distribute the square wave between boards with cables; this would be
+pretty horrible.</p>
+</div>
+<div class="section" id="square-wave-generation">
+<h2>Square wave generation<a class="headerlink" href="#square-wave-generation" title="Permalink to this headline">¶</a></h2>
+<p>Firstly, we need to generate the signal with which to control the noise diode. This is done
+with the <strong>sq_wave_gen</strong> block:</p>
+<div class="figure align-center">
+<img alt="Square wave gen" src="_images/sq_wave_gen_2.png" style="width: 500px;" />
+<p class="caption">The <strong>sq_wave_gen</strong> block generates a boolean signal which cycles between ON (True),
+and OFF (False).</p>
+</div>
+<div class="figure align-center">
+<img alt="Square wave gen" src="_images/sq_wave_gen.png" style="width: 600px;" />
+<p class="caption">The logic inside the <strong>sq_wave_gen</strong> block, and a simulated square wave.
+This produces a boolean square wave signal of the given period.
+The period can be controlled by the <strong>period</strong> register.</p>
+</div>
+<div class="figure align-center">
+<img alt="Square wave" src="_images/nar_sq_wave.jpg" style="width: 500px;" />
+<p class="caption">The resulting square wave, as measured on an oscilloscope in the lab. The output of
+<strong>sq_wave_gen</strong> is tied to the GPIO headers. These can run at up to 10 MHz, and output
+a 3.3V level signal.</p>
+</div>
+</div>
+<div class="section" id="fft-and-power">
+<h2>FFT and power<a class="headerlink" href="#fft-and-power" title="Permalink to this headline">¶</a></h2>
+<p>The output of the ADC is changed from 8_7 bits to 18_17 bits, then FFT&#8217;d.
+There are 16 complex channels output. The power (autocorrelation) is taken,
+then the signal is quantized down to 8 bits, in prep for the vector accumulator.</p>
+<div class="figure align-center">
+<img alt="FFT and power" src="_images/fluff_fft_quant.png" style="width: 500px;" />
+</div>
+</div>
+<div class="section" id="demux-and-accumulation">
+<h2>Demux and accumulation<a class="headerlink" href="#demux-and-accumulation" title="Permalink to this headline">¶</a></h2>
+<p>The output of the FFT needs to be separated into ON and OFF, which corresponds to the
+noise diode being on and off. To do this, the square wave generator is used as an input
+to a &#8216;demux&#8217; block.</p>
+<p>After separating the two signals, they are fed into vector accumulators. As the vectors are
+short (2x8 channels), bits grow quickly. As such, the input is 8 bit, and the output is 32 bit.
+This gives 2^24 max accumulations before bit overflows can occur (might need to increase this).</p>
+<div class="figure align-center">
+<img alt="FFT and power" src="_images/demux_vacc.png" style="width: 500px;" />
+</div>
+</div>
+<div class="section" id="data-readout">
+<h2>Data readout<a class="headerlink" href="#data-readout" title="Permalink to this headline">¶</a></h2>
+<p>To compute the sum ON - OFF, the outputs of the vector accumulators are fed into an adder block
+(which is set to minus). This creates a 33 bit signed number (can be -ve), which is recast to 32.</p>
+<p>After this, the signal is buffered and then fed into a shared BRAM, which can be accessed via the
+ROACH&#8217;s Power PC.</p>
+<div class="figure align-center">
+<img alt="Buffer and snap to BRAM" src="_images/buffer_snap.png" style="width: 500px;" />
+</div>
+</div>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>TODO.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Noise diode control</a><ul>
+<li><a class="reference internal" href="#firmware-overview">Firmware overview</a></li>
+<li><a class="reference internal" href="#square-wave-generation">Square wave generation</a></li>
+<li><a class="reference internal" href="#fft-and-power">FFT and power</a></li>
+<li><a class="reference internal" href="#demux-and-accumulation">Demux and accumulation</a></li>
+<li><a class="reference internal" href="#data-readout">Data readout</a></li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gateware.html"
+                        title="previous chapter">Gateware</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="software.html"
+                        title="next chapter">Software</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/noise_diode.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="software.html" title="Software"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gateware.html" title="Gateware"
+             >previous</a> |</li>
+        <li><a href="index.html">HIPSR 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Danny Price.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    </div>
+  </body>
+</html>

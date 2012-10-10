@@ -2,13 +2,16 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Software &mdash; HIPSR v1.0 documentation</title>
+    <title>Software &mdash; HIPSR 1.0 documentation</title>
+    
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
@@ -21,9 +24,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <link rel="top" title="HIPSR v1.0 documentation" href="index.html" />
+    <link rel="top" title="HIPSR 1.0 documentation" href="index.html" />
     <link rel="next" title="IP Address Allocation" href="ip_allocation.html" />
-    <link rel="prev" title="Gateware" href="gateware.html" /> 
+    <link rel="prev" title="Noise diode control" href="noise_diode.html" /> 
   </head>
   <body>
     <div class="related">
@@ -33,15 +36,12 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
           <a href="ip_allocation.html" title="IP Address Allocation"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="gateware.html" title="Gateware"
+          <a href="noise_diode.html" title="Noise diode control"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">HIPSR v1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">HIPSR 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -50,142 +50,8 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="module-HIPSR5">
-<span id="software"></span><h1>Software<a class="headerlink" href="#module-HIPSR5" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="hipsr5-py">
-<h2>HIPSR5.py<a class="headerlink" href="#hipsr5-py" title="Permalink to this headline">¶</a></h2>
-<p>Created by Danny Price on 2011-10-05.
-Copyright (c) 2011 The HIPSR collaboration. All rights reserved.</p>
-<p>Functions for creating HIPSR5 data files. The HIPSR5 data format is the
-main storage format for data taken with HIPSR. It is based on HDF5, which
-is superior to FITS in pretty much every way:</p>
-<p><a class="reference external" href="http://www.hdfgroup.org/HDF5/">http://www.hdfgroup.org/HDF5/</a></p>
-<dl class="class">
-<dt id="HIPSR5.Spectrum">
-<em class="property">class </em><tt class="descclassname">HIPSR5.</tt><tt class="descname">Spectrum</tt><a class="headerlink" href="#HIPSR5.Spectrum" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="HIPSR5.FirmwareConfig">
-<em class="property">class </em><tt class="descclassname">HIPSR5.</tt><tt class="descname">FirmwareConfig</tt><a class="headerlink" href="#HIPSR5.FirmwareConfig" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="HIPSR5.Observation">
-<em class="property">class </em><tt class="descclassname">HIPSR5.</tt><tt class="descname">Observation</tt><a class="headerlink" href="#HIPSR5.Observation" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="HIPSR5.createMultiBeam">
-<tt class="descclassname">HIPSR5.</tt><tt class="descname">createMultiBeam</tt><big>(</big><em>filename</em>, <em>path='./'</em>, <em>num_beams=13</em><big>)</big><a class="headerlink" href="#HIPSR5.createMultiBeam" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a new HDF5 file and populate with table structure for multibeam receiver</p>
-<p>returns pyTables h5 object</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>filename: string</strong> :</p>
-<blockquote>
-<div><p>filename of the file to be created</p>
-</div></blockquote>
-<p><strong>path: string</strong> :</p>
-<blockquote>
-<div><p>path to the file, defaults to current directory.</p>
-</div></blockquote>
-<p><strong>num_beams: int</strong> :</p>
-<blockquote class="last">
-<div><p>number of beams, should be 1, 7 or 13. Defaults to 13</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="HIPSR5.createSingleBeam">
-<tt class="descclassname">HIPSR5.</tt><tt class="descname">createSingleBeam</tt><big>(</big><em>filename</em>, <em>path='./'</em><big>)</big><a class="headerlink" href="#HIPSR5.createSingleBeam" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a new HDF5 file and populate with table structure for single beam</p>
-<p>returns pyTables h5 object</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>filename: string</strong> :</p>
-<blockquote>
-<div><p>filename of the file to be created</p>
-</div></blockquote>
-<p><strong>path:</strong> :</p>
-<blockquote class="last">
-<div><p>path to the file, defaults to current directory.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</div>
-<span class="target" id="module-HIPSR_dump_hdf5"></span><div class="section" id="hipsr-dump-hdf5-py">
-<h2>HIPSR_dump_hdf5.py<a class="headerlink" href="#hipsr-dump-hdf5-py" title="Permalink to this headline">¶</a></h2>
-<p>Created by Danny Price on 2011-10-05.</p>
-<p>Copyright (c) 2011 The HIPSR collaboration. All rights reserved.</p>
-<p>This script plots dual polarisation data from a single HIPSR roach, and
-at the same time dumps the data to HDF5.</p>
-<dl class="function">
-<dt id="HIPSR_dump_hdf5.get_data">
-<tt class="descclassname">HIPSR_dump_hdf5.</tt><tt class="descname">get_data</tt><big>(</big><em>fpga</em><big>)</big><a class="headerlink" href="#HIPSR_dump_hdf5.get_data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves spectral data from roach board.</p>
-<p>Returns spectral data, pol_a and pol_b as numpy arrays.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>fpga: katcp_wrapper.FpgaClient object</strong> :</p>
-<blockquote class="last">
-<div><p>fpga katcp socket thing that does the talking</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="HIPSR_dump_hdf5.plotHI">
-<tt class="descclassname">HIPSR_dump_hdf5.</tt><tt class="descname">plotHI</tt><big>(</big><em>a</em>, <em>b</em><big>)</big><a class="headerlink" href="#HIPSR_dump_hdf5.plotHI" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plots a spectrum (dual pol) centred around the HI line.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>a: numpy array</strong> :</p>
-<blockquote>
-<div><p>the spectrum to be plotted, polarisation A</p>
-</div></blockquote>
-<p><strong>b: numpy array</strong> :</p>
-<blockquote class="last">
-<div><p>the spectrum to be plotted, polarisation B</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</div>
-<span class="target" id="module-HIPSR_NGC6744"></span><div class="section" id="hipsr-ngc6744-py">
-<h2>HIPSR_NGC6744.py<a class="headerlink" href="#hipsr-ngc6744-py" title="Permalink to this headline">¶</a></h2>
-<p>Created by Danny Price on 2011-10-05.</p>
-<p>Copyright (c) 2011 The HIPSR collaboration. All rights reserved.</p>
-<p>Script used to plot HIPSR NGC6744 observation (&#8220;first light&#8221;).</p>
-<dl class="function">
-<dt id="HIPSR_NGC6744.plotHI">
-<tt class="descclassname">HIPSR_NGC6744.</tt><tt class="descname">plotHI</tt><big>(</big><em>a</em><big>)</big><a class="headerlink" href="#HIPSR_NGC6744.plotHI" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plots the spectrum using matplotlib</p>
-</dd></dl>
-
-</div>
+  <div class="section" id="software">
+<h1>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -194,19 +60,9 @@ at the same time dumps the data to HDF5.</p>
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Software</a><ul>
-<li><a class="reference internal" href="#hipsr5-py">HIPSR5.py</a></li>
-<li><a class="reference internal" href="#hipsr-dump-hdf5-py">HIPSR_dump_hdf5.py</a></li>
-<li><a class="reference internal" href="#hipsr-ngc6744-py">HIPSR_NGC6744.py</a></li>
-</ul>
-</li>
-</ul>
-
   <h4>Previous topic</h4>
-  <p class="topless"><a href="gateware.html"
-                        title="previous chapter">Gateware</a></p>
+  <p class="topless"><a href="noise_diode.html"
+                        title="previous chapter">Noise diode control</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="ip_allocation.html"
                         title="next chapter">IP Address Allocation</a></p>
@@ -239,20 +95,17 @@ at the same time dumps the data to HDF5.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
           <a href="ip_allocation.html" title="IP Address Allocation"
              >next</a> |</li>
         <li class="right" >
-          <a href="gateware.html" title="Gateware"
+          <a href="noise_diode.html" title="Noise diode control"
              >previous</a> |</li>
-        <li><a href="index.html">HIPSR v1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">HIPSR 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2011, Danny Price.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.8.
+      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
     </div>
   </body>
 </html>
