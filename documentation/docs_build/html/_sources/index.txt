@@ -12,6 +12,7 @@ Contents:
     introduction
     hardware
     gateware
+    noise_diode
     software
     ip_allocation
     contacts
