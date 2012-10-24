@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Python Module Index &mdash; HIPSR 1.0 documentation</title>
+    <title>HIPSR User’s Guide &mdash; HIPSR 1.0 documentation</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -25,13 +25,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="HIPSR 1.0 documentation" href="index.html" />
- 
-
-    <script type="text/javascript">
-      DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true;
-    </script>
-
-
+    <link rel="next" title="Hardware" href="hardware.html" />
+    <link rel="prev" title="Introduction" href="introduction.html" /> 
   </head>
   <body>
     <div class="related">
@@ -41,11 +36,17 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="#" title="Python Module Index"
+          <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
           <a href="np-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="hardware.html" title="Hardware"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="introduction.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
         <li><a href="index.html">HIPSR 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>  
@@ -55,33 +56,27 @@
         <div class="bodywrapper">
           <div class="body">
             
-
-   <h1>Python Module Index</h1>
-
-   <div class="modindex-jumpbox">
-   <a href="#cap-h"><strong>h</strong></a>
-   </div>
-
-   <table class="indextable modindextable" cellspacing="0" cellpadding="2">
-     <tr class="pcap"><td></td><td>&nbsp;</td><td></td></tr>
-     <tr class="cap" id="cap-h"><td></td><td>
-       <strong>h</strong></td><td></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="software.html#module-HIPSR5"><tt class="xref">HIPSR5</tt></a></td><td>
-       <em></em></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="software.html#module-hipsr_gui"><tt class="xref">hipsr_gui</tt></a></td><td>
-       <em></em></td></tr>
-     <tr>
-       <td></td>
-       <td>
-       <a href="software.html#module-hipsr_server"><tt class="xref">hipsr_server</tt></a></td><td>
-       <em></em></td></tr>
-   </table>
+  <div class="section" id="hipsr-user-s-guide">
+<h1>HIPSR User&#8217;s Guide<a class="headerlink" href="#hipsr-user-s-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="starting-hipsr">
+<h2>Starting HIPSR<a class="headerlink" href="#starting-hipsr" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-python"><pre>&gt; ssh [user]@hipsr-srv0(atnf.csiro.au)
+&gt; cd /home/pri229/hipsr/dev/
+&gt; python hipsr_server.py</pre>
+</div>
+</div>
+<div class="section" id="stopping-hipsr">
+<h2>Stopping HIPSR<a class="headerlink" href="#stopping-hipsr" title="Permalink to this headline">¶</a></h2>
+<p>Press ctrl + C</p>
+</div>
+<div class="section" id="socket-error">
+<h2>Socket error<a class="headerlink" href="#socket-error" title="Permalink to this headline">¶</a></h2>
+<p>TCS seems to give a random socket error 9: bad file name the first time
+it connects to the HIPSR server (hipsr-srv0). This doesn&#8217;t seem to matter.</p>
+<p>Sometimes the TCS socket is held open, and neither TCS or HIPSR will negotiate
+a new TCP/IP connection. You may need to wait 30 seconds until the socket clears.</p>
+</div>
+</div>
 
 
           </div>
@@ -89,6 +84,27 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">HIPSR User&#8217;s Guide</a><ul>
+<li><a class="reference internal" href="#starting-hipsr">Starting HIPSR</a></li>
+<li><a class="reference internal" href="#stopping-hipsr">Stopping HIPSR</a></li>
+<li><a class="reference internal" href="#socket-error">Socket error</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="introduction.html"
+                        title="previous chapter">Introduction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="hardware.html"
+                        title="next chapter">Hardware</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/user_guide.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
 <div id="searchbox" style="display: none">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
@@ -113,11 +129,17 @@
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="#" title="Python Module Index"
+          <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
           <a href="np-modindex.html" title="Python Module Index"
              >modules</a> |</li>
+        <li class="right" >
+          <a href="hardware.html" title="Hardware"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="introduction.html" title="Introduction"
+             >previous</a> |</li>
         <li><a href="index.html">HIPSR 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
