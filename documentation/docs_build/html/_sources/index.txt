@@ -10,12 +10,14 @@ Contents:
 
 .. toctree::
     introduction
+    user_guide
     hardware
+    ip_allocation
+    software
     gateware
     noise_diode
-    software
-    ip_allocation
     contacts
+    
 
 Indices and tables
 ==================
@@ -25,7 +27,7 @@ Indices and tables
 * :ref:`search`
 
 .. figure:: parkes_focus.jpg
-    :scale: 50%
+    :width: 500px
     :alt: HIPSR documentation
     :align: center
 

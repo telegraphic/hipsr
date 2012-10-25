@@ -18,7 +18,8 @@ import sys, os
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #sys.path.insert(0, os.path.abspath('.'))
 sys.path.insert(0, os.path.abspath('../software'))
-
+sys.path.insert(0, os.path.abspath('../software/dev'))
+sys.path.insert(0, os.path.abspath('../software/dev/lib'))
 # -- General configuration -----------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
