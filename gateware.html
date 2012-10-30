@@ -1,6 +1,5 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,7 +8,7 @@
     
     <title>Gateware &mdash; HIPSR 1.0 documentation</title>
     
-    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/solar.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -25,8 +24,9 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="HIPSR 1.0 documentation" href="index.html" />
-    <link rel="next" title="Software" href="software.html" />
-    <link rel="prev" title="Hardware" href="hardware.html" /> 
+    <link rel="next" title="Roach Setup/Config" href="ip_allocation.html" />
+    <link rel="prev" title="Software" href="software.html" /><link href='http://fonts.googleapis.com/css?family=PT+Mono|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="_static/solarized-dark.css" rel="stylesheet">
   </head>
   <body>
     <div class="related">
@@ -36,14 +36,65 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="software.html" title="Software"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ip_allocation.html" title="Roach Setup/Config"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="hardware.html" title="Hardware"
+          <a href="software.html" title="Software"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">HIPSR 1.0 documentation</a> &raquo;</li> 
       </ul>
-    </div>  
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Gateware</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#pulsar-modes">Pulsar modes</a><ul>
+<li><a class="reference internal" href="#adc-to-ten-gigabit-ethernet">ADC to Ten Gigabit Ethernet</a></li>
+<li><a class="reference internal" href="#parkes-spectrometer-parspec">Parkes Spectrometer (Parspec)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#spectral-line-modes">Spectral line modes</a><ul>
+<li><a class="reference internal" href="#hipsr-wideband-spectrometer">HIPSR Wideband Spectrometer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="software.html"
+                        title="previous chapter">Software</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ip_allocation.html"
+                        title="next chapter">Roach Setup/Config</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/gateware.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
 
     <div class="document">
       <div class="documentwrapper">
@@ -283,7 +334,7 @@ ROACH it feels positively roomy.</p>
 <p>This is a 400MHz bandwidth, 8192 channel polyphase filterbank. The filterbank
 is 4-taps, with hamming window coefficients.</p>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="_images/PFB_response.png"><img alt="PFB response vs FFT response" src="_images/PFB_response.png" /></a>
+<img alt="PFB response vs FFT response" src="_images/PFB_response.png" style="width: 650px;" />
 <p class="caption"><em>Filterbank response for different numbers of taps. We are using 4-taps in
 this 8192 channel design.</em></p>
 </div>
@@ -410,51 +461,6 @@ amount of DSP48E logic left.</p>
           </div>
         </div>
       </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Gateware</a><ul>
-<li><a class="reference internal" href="#overview">Overview</a></li>
-<li><a class="reference internal" href="#pulsar-modes">Pulsar modes</a><ul>
-<li><a class="reference internal" href="#adc-to-ten-gigabit-ethernet">ADC to Ten Gigabit Ethernet</a></li>
-<li><a class="reference internal" href="#parkes-spectrometer-parspec">Parkes Spectrometer (Parspec)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#spectral-line-modes">Spectral line modes</a><ul>
-<li><a class="reference internal" href="#hipsr-wideband-spectrometer">HIPSR Wideband Spectrometer</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="hardware.html"
-                        title="previous chapter">Hardware</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="software.html"
-                        title="next chapter">Software</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/gateware.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
       <div class="clearer"></div>
     </div>
     <div class="related">
@@ -464,17 +470,23 @@ amount of DSP48E logic left.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="software.html" title="Software"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ip_allocation.html" title="Roach Setup/Config"
              >next</a> |</li>
         <li class="right" >
-          <a href="hardware.html" title="Hardware"
+          <a href="software.html" title="Software"
              >previous</a> |</li>
         <li><a href="index.html">HIPSR 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2011, Danny Price.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.Theme by <a href="http://github.com/vkvn">vkvn</a>
     </div>
   </body>
 </html>

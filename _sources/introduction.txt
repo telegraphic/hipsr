@@ -10,7 +10,7 @@ HIPSR consists of digitizer cards; FPGA digital processing boards for "low-level
 a 10GbE switch for data interconnect; and, a CPU/GPU cluster for "high-level" DSP and data storage. The network architecture is shown in the figure below:
 
 .. figure:: HIPSR_arch.png
-    :scale: 100%
+    :width: 600px
     :alt: HIPSR Architecture
     :align: center
     

@@ -124,7 +124,7 @@ This is a 400MHz bandwidth, 8192 channel polyphase filterbank. The filterbank
 is 4-taps, with hamming window coefficients. 
 
 .. figure:: PFB_response.png
-    :scale: 30%
+    :width: 650px
     :alt: PFB response vs FFT response
     :align: center
     
