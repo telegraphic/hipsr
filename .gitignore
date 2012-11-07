@@ -1,3 +1,5 @@
 *.pyc
 *.h5
 .tm_properties
+*.sdfits
+*.hdf

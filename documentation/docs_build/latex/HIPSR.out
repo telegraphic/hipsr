@@ -1,0 +1,36 @@
+\BOOKMARK [0][-]{chapter.1}{HIPSR User's Guide}{}% 1
+\BOOKMARK [1][-]{section.1.1}{Introduction}{chapter.1}% 2
+\BOOKMARK [1][-]{section.1.2}{Hardware}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.3}{Software}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.4}{How everything fits together}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.5}{Observing with HIPSR}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.6}{When things go wrong}{chapter.1}% 7
+\BOOKMARK [0][-]{chapter.2}{Hardware}{}% 8
+\BOOKMARK [1][-]{section.2.1}{HIPSR Packetized Architecture}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.2}{CASPER ROACH boards}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.3}{iADC digitizer cards}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.4}{Cisco switch}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.5}{HIPSR Servers}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.6}{Cabling}{chapter.2}% 14
+\BOOKMARK [0][-]{chapter.3}{Software}{}% 15
+\BOOKMARK [1][-]{section.3.1}{hipsr\137server.py}{chapter.3}% 16
+\BOOKMARK [1][-]{section.3.2}{hipsr\137gui.py}{chapter.3}% 17
+\BOOKMARK [0][-]{chapter.4}{Gateware}{}% 18
+\BOOKMARK [1][-]{section.4.1}{Overview}{chapter.4}% 19
+\BOOKMARK [1][-]{section.4.2}{Spectral line modes}{chapter.4}% 20
+\BOOKMARK [1][-]{section.4.3}{Pulsar modes}{chapter.4}% 21
+\BOOKMARK [0][-]{chapter.5}{Roach Setup/Config}{}% 22
+\BOOKMARK [1][-]{section.5.1}{IF mappings}{chapter.5}% 23
+\BOOKMARK [1][-]{section.5.2}{IP Address Allocation}{chapter.5}% 24
+\BOOKMARK [0][-]{chapter.6}{Noise diode control}{}% 25
+\BOOKMARK [1][-]{section.6.1}{Firmware overview}{chapter.6}% 26
+\BOOKMARK [1][-]{section.6.2}{Square wave generation}{chapter.6}% 27
+\BOOKMARK [1][-]{section.6.3}{FFT and power}{chapter.6}% 28
+\BOOKMARK [1][-]{section.6.4}{Demux and accumulation}{chapter.6}% 29
+\BOOKMARK [1][-]{section.6.5}{Data readout}{chapter.6}% 30
+\BOOKMARK [1][-]{section.6.6}{Testing}{chapter.6}% 31
+\BOOKMARK [0][-]{chapter.7}{Contacts}{}% 32
+\BOOKMARK [0][-]{chapter.8}{Indices and tables}{}% 33
+\BOOKMARK [0][-]{section*.27}{Python Module Index}{}% 34
+\BOOKMARK [0][-]{section*.28}{Python Module Index}{}% 35
+\BOOKMARK [0][-]{section*.29}{Index}{}% 36

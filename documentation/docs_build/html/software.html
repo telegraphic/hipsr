@@ -1,6 +1,5 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,7 +8,7 @@
     
     <title>Software &mdash; HIPSR 1.0 documentation</title>
     
-    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/solar.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -26,7 +25,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="HIPSR 1.0 documentation" href="index.html" />
     <link rel="next" title="Gateware" href="gateware.html" />
-    <link rel="prev" title="Roach Setup/Config" href="ip_allocation.html" /> 
+    <link rel="prev" title="Hardware" href="hardware.html" /><link href='http://fonts.googleapis.com/css?family=PT+Mono|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="_static/solarized-dark.css" rel="stylesheet">
   </head>
   <body>
     <div class="related">
@@ -45,11 +45,52 @@
           <a href="gateware.html" title="Gateware"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="ip_allocation.html" title="Roach Setup/Config"
+          <a href="hardware.html" title="Hardware"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">HIPSR 1.0 documentation</a> &raquo;</li> 
       </ul>
-    </div>  
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Software</a><ul>
+<li><a class="reference internal" href="#hipsr-server-py">hipsr_server.py</a></li>
+<li><a class="reference internal" href="#hipsr-gui-py">hipsr_gui.py</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#todo">TODO:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="hardware.html"
+                        title="previous chapter">Hardware</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="gateware.html"
+                        title="next chapter">Gateware</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/software.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
 
     <div class="document">
       <div class="documentwrapper">
@@ -57,7 +98,7 @@
           <div class="body">
             
   <div class="section" id="module-hipsr_server">
-<span id="software"></span><h1>Software<a class="headerlink" href="#module-hipsr_server" title="Permalink to this headline">¶</a></h1>
+<span id="software"></span><span id="software-chapter"></span><h1>Software<a class="headerlink" href="#module-hipsr_server" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="hipsr-server-py">
 <h2>hipsr_server.py<a class="headerlink" href="#hipsr-server-py" title="Permalink to this headline">¶</a></h2>
 <p>HIPSR wideband spectrometer server script. This script reprograms and reconfigures the roach
@@ -79,6 +120,19 @@ Copyright (c) 2012 The HIPSR collaboration. All rights reserved.</p>
 <dd><p>Thread run method. Fetch data from roach</p>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="class">
+<dt id="hipsr_server.Logger">
+<em class="property">class </em><tt class="descclassname">hipsr_server.</tt><tt class="descname">Logger</tt><big>(</big><em>filename</em>, <em>filepath</em><big>)</big><a class="headerlink" href="#hipsr_server.Logger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Logger which records the output of stdin to file</p>
+<p class="rubric">Methods</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="hipsr_server.createNewFile">
+<tt class="descclassname">hipsr_server.</tt><tt class="descname">createNewFile</tt><big>(</big><big>)</big><a class="headerlink" href="#hipsr_server.createNewFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes current file and creates a new one</p>
 </dd></dl>
 
 <dl class="function">
@@ -139,25 +193,31 @@ numpy, matplotlib.</p>
 
 <dl class="method">
 <dt id="hipsr_gui.HipsrGui.createMultiBeamPlot">
-<tt class="descname">createMultiBeamPlot</tt><big>(</big><em>numchans=128</em><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.createMultiBeamPlot" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">createMultiBeamPlot</tt><big>(</big><em>numchans=256</em><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.createMultiBeamPlot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates 13 subplots in a hexagonal array representing the multibeam feeds</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hipsr_gui.HipsrGui.createOverallPowerPlot">
-<tt class="descname">createOverallPowerPlot</tt><big>(</big><em>numchans=128</em>, <em>beamid='beam_01'</em><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.createOverallPowerPlot" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">createOverallPowerPlot</tt><big>(</big><em>numchans=120</em>, <em>beamid='beam_01'</em><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.createOverallPowerPlot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates an overall power vs time plot.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="hipsr_gui.HipsrGui.createSingleBeamPlot">
-<tt class="descname">createSingleBeamPlot</tt><big>(</big><em>numchans=128</em>, <em>beamid='beam_01'</em><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.createSingleBeamPlot" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">createSingleBeamPlot</tt><big>(</big><em>numchans=256</em>, <em>beamid='beam_01'</em><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.createSingleBeamPlot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a single pylab plot for HIPSR data.</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="hipsr_gui.HipsrGui.createWaterfallPlot">
+<tt class="descname">createWaterfallPlot</tt><big>(</big><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.createWaterfallPlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a single imshow plot for HIPSR data.</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="hipsr_gui.HipsrGui.initUI">
-<tt class="descname">initUI</tt><big>(</big><em>width=1024</em>, <em>height=768</em><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.initUI" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">initUI</tt><big>(</big><em>width=1200</em>, <em>height=750</em><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.initUI" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialize the User Interface</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -191,140 +251,30 @@ numpy, matplotlib.</p>
 
 <dl class="method">
 <dt id="hipsr_gui.HipsrGui.updateOverallPowerPlot">
-<tt class="descname">updateOverallPowerPlot</tt><big>(</big><em>data</em><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.updateOverallPowerPlot" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">updateOverallPowerPlot</tt><big>(</big><em>key</em>, <em>xx</em>, <em>yy</em><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.updateOverallPowerPlot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update power monitor plot.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="hipsr_gui.HipsrGui.updateWaterfallPlot">
+<tt class="descname">updateWaterfallPlot</tt><big>(</big><em>new_data</em><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.updateWaterfallPlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates waterfall plot with new values</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="hipsr_gui.HipsrGui.updateWaterfallThreshold">
+<tt class="descname">updateWaterfallThreshold</tt><big>(</big><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.updateWaterfallThreshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the threshold value for the waterfall plot</p>
+</dd></dl>
+
 </dd></dl>
 
 </div>
-</div>
-<span class="target" id="module-HIPSR5"></span><div class="section" id="hipsr5-py">
-<h2>HIPSR5.py<a class="headerlink" href="#hipsr5-py" title="Permalink to this headline">¶</a></h2>
-<p>Created by Danny Price on 2011-10-05.
-Copyright (c) 2011 The HIPSR collaboration. All rights reserved.</p>
-<p>Functions for creating HIPSR5 data files. The HIPSR5 data format is the
-main storage format for data taken with HIPSR. It is based on HDF5, which
-is superior to FITS in pretty much every way:</p>
-<p><a class="reference external" href="http://www.hdfgroup.org/HDF5/">http://www.hdfgroup.org/HDF5/</a></p>
-<dl class="class">
-<dt id="HIPSR5.Spectrum">
-<em class="property">class </em><tt class="descclassname">HIPSR5.</tt><tt class="descname">Spectrum</tt><a class="headerlink" href="#HIPSR5.Spectrum" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="HIPSR5.FirmwareConfig">
-<em class="property">class </em><tt class="descclassname">HIPSR5.</tt><tt class="descname">FirmwareConfig</tt><a class="headerlink" href="#HIPSR5.FirmwareConfig" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="HIPSR5.Observation">
-<em class="property">class </em><tt class="descclassname">HIPSR5.</tt><tt class="descname">Observation</tt><a class="headerlink" href="#HIPSR5.Observation" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="HIPSR5.createMultiBeam">
-<tt class="descclassname">HIPSR5.</tt><tt class="descname">createMultiBeam</tt><big>(</big><em>filename</em>, <em>path='./'</em>, <em>num_beams=13</em><big>)</big><a class="headerlink" href="#HIPSR5.createMultiBeam" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a new HDF5 file and populate with table structure for multibeam receiver</p>
-<p>returns pyTables h5 object</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>filename: string</strong> :</p>
-<blockquote>
-<div><p>filename of the file to be created</p>
-</div></blockquote>
-<p><strong>path: string</strong> :</p>
-<blockquote>
-<div><p>path to the file, defaults to current directory.</p>
-</div></blockquote>
-<p><strong>num_beams: int</strong> :</p>
-<blockquote class="last">
-<div><p>number of beams, should be 1, 7 or 13. Defaults to 13</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="HIPSR5.createSingleBeam">
-<tt class="descclassname">HIPSR5.</tt><tt class="descname">createSingleBeam</tt><big>(</big><em>filename</em>, <em>path='./'</em><big>)</big><a class="headerlink" href="#HIPSR5.createSingleBeam" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a new HDF5 file and populate with table structure for single beam</p>
-<p>returns pyTables h5 object</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>filename: string</strong> :</p>
-<blockquote>
-<div><p>filename of the file to be created</p>
-</div></blockquote>
-<p><strong>path:</strong> :</p>
-<blockquote class="last">
-<div><p>path to the file, defaults to current directory.</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="HIPSR5.hdfWriter">
-<tt class="descclassname">HIPSR5.</tt><tt class="descname">hdfWriter</tt><big>(</big><em>h5</em>, <em>data</em><big>)</big><a class="headerlink" href="#HIPSR5.hdfWriter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Writes data to a HDF file</p>
-</dd></dl>
-
 </div>
 </div>
 
 
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Software</a><ul>
-<li><a class="reference internal" href="#hipsr-server-py">hipsr_server.py</a></li>
-<li><a class="reference internal" href="#hipsr-gui-py">hipsr_gui.py</a><ul>
-<li><a class="reference internal" href="#requirements">Requirements</a></li>
-<li><a class="reference internal" href="#todo">TODO:</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#hipsr5-py">HIPSR5.py</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="ip_allocation.html"
-                        title="previous chapter">Roach Setup/Config</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="gateware.html"
-                        title="next chapter">Gateware</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/software.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -345,14 +295,14 @@ is superior to FITS in pretty much every way:</p>
           <a href="gateware.html" title="Gateware"
              >next</a> |</li>
         <li class="right" >
-          <a href="ip_allocation.html" title="Roach Setup/Config"
+          <a href="hardware.html" title="Hardware"
              >previous</a> |</li>
         <li><a href="index.html">HIPSR 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2011, Danny Price.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.Theme by <a href="http://github.com/vkvn">vkvn</a>
     </div>
   </body>
 </html>

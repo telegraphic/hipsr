@@ -1,0 +1,58 @@
+\begin{theindex}
+\def\bigletter#1{{\Large\sffamily#1}\nopagebreak\vspace{1mm}}
+
+  \bigletter B
+  \item bufferUDPData() (hipsr\_gui.HipsrGui method), \hyperpage{14}
+
+  \indexspace
+  \bigletter C
+  \item createMultiBeamPlot() (hipsr\_gui.HipsrGui method), \hyperpage{14}
+  \item createNewFile() (in module hipsr\_server), \hyperpage{13}
+  \item createOverallPowerPlot() (hipsr\_gui.HipsrGui method), \hyperpage{14}
+  \item createSingleBeamPlot() (hipsr\_gui.HipsrGui method), \hyperpage{14}
+  \item createWaterfallPlot() (hipsr\_gui.HipsrGui method), \hyperpage{14}
+
+  \indexspace
+  \bigletter D
+  \item DataFetcher (class in hipsr\_server), \hyperpage{13}
+
+  \indexspace
+  \bigletter G
+  \item getSpectraThreaded() (in module hipsr\_server), \hyperpage{13}
+
+  \indexspace
+  \bigletter H
+  \item hdfWriter() (in module hipsr\_server), \hyperpage{13}
+  \item hipsr\_gui (module), \hyperpage{13}
+  \item hipsr\_server (module), \hyperpage{13}
+  \item HipsrGui (class in hipsr\_gui), \hyperpage{14}
+
+  \indexspace
+  \bigletter I
+  \item initUI() (hipsr\_gui.HipsrGui method), \hyperpage{14}
+
+  \indexspace
+  \bigletter L
+  \item Logger (class in hipsr\_server), \hyperpage{13}
+
+  \indexspace
+  \bigletter O
+  \item onBeamSelect() (hipsr\_gui.HipsrGui method), \hyperpage{14}
+
+  \indexspace
+  \bigletter R
+  \item run() (hipsr\_server.DataFetcher method), \hyperpage{13}
+
+  \indexspace
+  \bigletter T
+  \item tcsServer() (in module hipsr\_server), \hyperpage{13}
+  \item toJson() (in module hipsr\_server), \hyperpage{13}
+
+  \indexspace
+  \bigletter U
+  \item updateAllPlots() (hipsr\_gui.HipsrGui method), \hyperpage{14}
+  \item updateOverallPowerPlot() (hipsr\_gui.HipsrGui method), \hyperpage{14}
+  \item updateWaterfallPlot() (hipsr\_gui.HipsrGui method), \hyperpage{15}
+  \item updateWaterfallThreshold() (hipsr\_gui.HipsrGui method), \hyperpage{15}
+
+\end{theindex}

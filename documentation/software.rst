@@ -1,5 +1,7 @@
 .. HIPSR documentation master file, created by
 
+.. _software-chapter:
+
 Software
 ========
 
@@ -8,15 +10,5 @@ Software
 
 .. automodule:: hipsr_gui
     :members:
-
-.. automodule:: HIPSR5
-    :members:
-    
-    .. autoclass:: Spectrum
-    
-    .. autoclass:: FirmwareConfig
-    
-    .. autoclass:: Observation
-
 
 

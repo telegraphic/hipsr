@@ -1,6 +1,5 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -9,7 +8,7 @@
     
     <title>Hardware &mdash; HIPSR 1.0 documentation</title>
     
-    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/solar.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -25,8 +24,9 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="HIPSR 1.0 documentation" href="index.html" />
-    <link rel="next" title="Gateware" href="gateware.html" />
-    <link rel="prev" title="Introduction" href="introduction.html" /> 
+    <link rel="next" title="Software" href="software.html" />
+    <link rel="prev" title="HIPSR User’s Guide" href="user_guide.html" /><link href='http://fonts.googleapis.com/css?family=PT+Mono|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="_static/solarized-dark.css" rel="stylesheet">
   </head>
   <body>
     <div class="related">
@@ -36,14 +36,65 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="gateware.html" title="Gateware"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="software.html" title="Software"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="introduction.html" title="Introduction"
+          <a href="user_guide.html" title="HIPSR User’s Guide"
              accesskey="P">previous</a> |</li>
         <li><a href="index.html">HIPSR 1.0 documentation</a> &raquo;</li> 
       </ul>
-    </div>  
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Hardware</a><ul>
+<li><a class="reference internal" href="#hipsr-packetized-architecture">HIPSR Packetized Architecture</a></li>
+<li><a class="reference internal" href="#casper-roach-boards">CASPER ROACH boards</a></li>
+<li><a class="reference internal" href="#iadc-digitizer-cards">iADC digitizer cards</a></li>
+<li><a class="reference internal" href="#cisco-switch">Cisco switch</a></li>
+<li><a class="reference internal" href="#hipsr-servers">HIPSR Servers</a><ul>
+<li><a class="reference internal" href="#server-nodes">Server nodes</a></li>
+<li><a class="reference internal" href="#hipsr-srv0">hipsr-srv0</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#cabling">Cabling</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="user_guide.html"
+                        title="previous chapter">HIPSR User&#8217;s Guide</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="software.html"
+                        title="next chapter">Software</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/hardware.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
 
     <div class="document">
       <div class="documentwrapper">
@@ -51,14 +102,23 @@
           <div class="body">
             
   <div class="section" id="hardware">
-<h1>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h1>
+<span id="hardware-chapter"></span><h1>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h1>
 <p>This page details the hardware in use in the HIPSR system. HIPSR consists of digitizer
 cards; FPGA digital processing boards for &#8220;low-level&#8221; DSP; a 10GbE switch for data
 interconnect; and, a CPU/GPU cluster for &#8220;high-level&#8221; DSP and data storage.</p>
+<div class="section" id="hipsr-packetized-architecture">
+<h2>HIPSR Packetized Architecture<a class="headerlink" href="#hipsr-packetized-architecture" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center">
+<img alt="HIPSR Architecture" src="_images/HIPSR_arch.png" style="width: 500px;" />
+<p class="caption"><em>Network architecture for HIPSR.</em></p>
+</div>
+<p>The HIPSR system may be described as a multi-node DSP <a href="#id1"><span class="problematic" id="id2">`</span></a>frontend&#8217; connected to a multi-node DSP <a href="#id3"><span class="problematic" id="id4">`</span></a>backend&#8217; by a 10Gb Ethernet (10GbE) switch. In the HIPSR system detailed here, DSP tasks are divided between FPGAs and GPGPUs as appropriate. The FPGA based DSP frontend conducts signal processing tasks such as signal filtering and channelization; the GPGPU based DSP backend performs higher-level, moderate- to low- bandwidth DSP such as running pulsar processing pipelines. A diagram of the system archiecture is shown below.</p>
+<p>The inclusion of a switch greatly increases the flexibility of the system as data can be dynamically routed between nodes. It does, however, require all data to be packetized along with metadata that describes packet&#8217;s data payload. Nevertheless, using a switched 10GbE based packetized architecture instead of defining and commissioning a bespoke backplane has drastically decreased development time: all interconnect is off-the-shelf, industry standard, commodity hardware.</p>
+</div>
 <div class="section" id="casper-roach-boards">
 <h2>CASPER ROACH boards<a class="headerlink" href="#casper-roach-boards" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-center">
-<a class="reference internal image-reference" href="_images/ROACH_IO.png"><img alt="HIPSR Architecture" src="_images/ROACH_IO.png" /></a>
+<img alt="HIPSR Architecture" src="_images/ROACH_IO.png" style="width: 500px;" />
 <p class="caption"><em>Roach Input/Output</em></p>
 </div>
 <p>ROACH (Reconfigurable Open Architecture Computing Hardware) is a standalone
@@ -99,7 +159,9 @@ based on the Atmel/e2V AT84AD001B 8-bit Dual 1Gsps ADC:</p>
 </div>
 <div class="section" id="cisco-switch">
 <h2>Cisco switch<a class="headerlink" href="#cisco-switch" title="Permalink to this headline">¶</a></h2>
-<p>We will be loaning a CISCO C4900M switch from CASS, with the following specs:</p>
+<p>The DSP frontend and backend nodes are connected via a 10Gb Ethernet switch. This Cisco 4900M switch is configured with 24 CX4-type ports, 13 of which are connected to the DSP frontend ROACH boards, and 8 of which are connected to the server nodes. The switch allows bi-directional data flow between nodes. The 10GbE switch also has a dedicated 1GbE fibre link to the <a class="reference external" href="http://astronomy.swin.edu.au/supercomputing/green2/">Green II supercomputer</a></p>
+<p>at Swinburne University in Melbourne.</p>
+<p>All nodes are also connected by 1GbE, through a Cisco 3750 switch. For low bandwidth applications where all of the necessary DSP can be conducted on the FPGA, all data may be read off the 1GbE ports of the ROACH boards.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="23%" />
@@ -142,61 +204,43 @@ in each chassis)</td>
 </div>
 <div class="section" id="hipsr-servers">
 <h2>HIPSR Servers<a class="headerlink" href="#hipsr-servers" title="Permalink to this headline">¶</a></h2>
-<p>Todo</p>
+<div class="section" id="server-nodes">
+<h3>Server nodes<a class="headerlink" href="#server-nodes" title="Permalink to this headline">¶</a></h3>
+<p>The GPGPU server nodes are bespoke systems, built to specification by Silicon Graphics Pty. Ltd. Each of the 8 server nodes are comprised of:</p>
+<ul class="simple">
+<li>dual 2.66 GHz Intel Xeon six-core CPUs,</li>
+<li>48 GB DDR3 memory, and</li>
+<li>dual Nvidia Tesla C2070 GPGPUs.</li>
+</ul>
+<p>While it is intended that a majority of DSP will be conducted on the GPGPUs, the Intel Xeon CPUs may also be used, if required.</p>
+<p>As each server has a single CX4-type 10GbE network interface card (NIC), the input data rate for each server is limited to 10 Gb/s. Given that there are 26 IFs which must be processed by 8 server nodes, the DSP frontend must decrease the data rate of</p>
+<blockquote>
+<div><strong>2 x 400MHz x 8bit = 6.4 Gb/s</strong></div></blockquote>
+<p>from each IF from 6.4Gb/s to about 3.0Gb/s.</p>
 </div>
-<div class="section" id="sync-pulse-distribution">
-<h2>Sync Pulse Distribution<a class="headerlink" href="#sync-pulse-distribution" title="Permalink to this headline">¶</a></h2>
-<p>Todo</p>
+<div class="section" id="hipsr-srv0">
+<h3>hipsr-srv0<a class="headerlink" href="#hipsr-srv0" title="Permalink to this headline">¶</a></h3>
+<p>In addition to the GPGPU server nodes, there is a server which provides monitor and control for the DSP frontend, and provides data storage. This server has:</p>
+<ul class="simple">
+<li>a 2.4 GHz Intel Xeon four-core CPU,</li>
+<li>24 GB DDR3 memory,</li>
+<li>5TB RAID HDD</li>
+</ul>
+<p>As it is not used for DSP, it does not have a GPGPU. This server runs a DHCP daemon and provides a network file system (NFS) to the ROACH boards.</p>
 </div>
-<div class="section" id="clock-distribution-system">
-<h2>Clock Distribution System<a class="headerlink" href="#clock-distribution-system" title="Permalink to this headline">¶</a></h2>
-<p>Todo</p>
+</div>
+<div class="section" id="cabling">
+<h2>Cabling<a class="headerlink" href="#cabling" title="Permalink to this headline">¶</a></h2>
+<p>In March 2012, the HIPSR hardware was installed into RFI shielded racks R and S, located on the second floor of the Parkes 64m telescope building (this room lies underneath the telescope dish).
+* A set of BNC cables were laid under the floor from the existing multibeam IF distribution panel to BNC feedthroughs installed on the racks.
+* Another set of cables connect the BNC feedthrough to the SMA input of the iADC cards.
+* A third set of cables connects the 1PPS input of the iADC to a PPS distribution unit, and a clock signal is distributed to each board by a fourth set of SMA cables.</p>
+<p>Each server node and ROACH board is connected to a 1GbE switch by an Ethernet cable (CAT-5E STP). Similarly, each server node and ROACH is connected to a 10GbE switch via CX4 type cables.</p>
 </div>
 </div>
 
 
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Hardware</a><ul>
-<li><a class="reference internal" href="#casper-roach-boards">CASPER ROACH boards</a></li>
-<li><a class="reference internal" href="#iadc-digitizer-cards">iADC digitizer cards</a></li>
-<li><a class="reference internal" href="#cisco-switch">Cisco switch</a></li>
-<li><a class="reference internal" href="#hipsr-servers">HIPSR Servers</a></li>
-<li><a class="reference internal" href="#sync-pulse-distribution">Sync Pulse Distribution</a></li>
-<li><a class="reference internal" href="#clock-distribution-system">Clock Distribution System</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="introduction.html"
-                        title="previous chapter">Introduction</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="gateware.html"
-                        title="next chapter">Gateware</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/hardware.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
         </div>
       </div>
       <div class="clearer"></div>
@@ -208,17 +252,23 @@ in each chassis)</td>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="gateware.html" title="Gateware"
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="np-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="software.html" title="Software"
              >next</a> |</li>
         <li class="right" >
-          <a href="introduction.html" title="Introduction"
+          <a href="user_guide.html" title="HIPSR User’s Guide"
              >previous</a> |</li>
         <li><a href="index.html">HIPSR 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2011, Danny Price.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.Theme by <a href="http://github.com/vkvn">vkvn</a>
     </div>
   </body>
 </html>

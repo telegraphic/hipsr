@@ -3,18 +3,21 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to HIPSR's documentation!
+HIPSR: HI-Pulsar signal processor
 =================================
+
+
+
+HIPSR is a new reconfigurable digital backend for the Parkes multibeam receiver. HIPSR is capable of running many different firmware modes, so can be used for both high resolution, wide bandwidth spectral line observations, and high time resolution pulsar observations.
 
 Contents:
 
 .. toctree::
-    introduction
     user_guide
     hardware
-    ip_allocation
     software
     gateware
+    ip_allocation
     noise_diode
     contacts
     
@@ -27,8 +30,7 @@ Indices and tables
 * :ref:`search`
 
 .. figure:: parkes_focus.jpg
-    :width: 500px
+    :width: 300px
     :alt: HIPSR documentation
     :align: center
-
 
