@@ -1,3 +1,9 @@
 [submodule "toolflow"]
 	path = toolflow
 	url = https://github.com/telegraphic/mlib_devel.git
+[submodule "software"]
+	path = software
+	url = https://github.com/telegraphic/hipsr-software
+[submodule "gateware"]
+	path = gateware
+	url = https://github.com/telegraphic/hipsr-gateware
