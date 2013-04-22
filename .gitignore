@@ -1,5 +1,5 @@
+.DS_Store
+icon.gif
+hipsr_core
 *.pyc
-*.h5
-.tm_properties
-*.sdfits
-*.hdf
+*.*~

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -13,7 +12,7 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -24,7 +23,7 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <link rel="top" title="HIPSR 1.0 documentation" href="#" />
-    <link rel="next" title="HIPSR User’s Guide" href="user_guide.html" /><link href='http://fonts.googleapis.com/css?family=PT+Mono|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+    <link rel="next" title="HIPSR Overview" href="overview.html" /><link href='http://fonts.googleapis.com/css?family=PT+Mono|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
 <link href="_static/solarized-dark.css" rel="stylesheet">
   </head>
   <body>
@@ -41,7 +40,7 @@
           <a href="np-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="user_guide.html" title="HIPSR User’s Guide"
+          <a href="overview.html" title="HIPSR Overview"
              accesskey="N">next</a> |</li>
         <li><a href="#">HIPSR 1.0 documentation</a> &raquo;</li> 
       </ul>
@@ -57,8 +56,8 @@
 </ul>
 
   <h4>Next topic</h4>
-  <p class="topless"><a href="user_guide.html"
-                        title="next chapter">HIPSR User&#8217;s Guide</a></p>
+  <p class="topless"><a href="overview.html"
+                        title="next chapter">HIPSR Overview</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/index.txt"
@@ -91,18 +90,21 @@
 <p>Contents:</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="user_guide.html">HIPSR User&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="user_guide.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_guide.html#hardware">Hardware</a></li>
-<li class="toctree-l2"><a class="reference internal" href="user_guide.html#software">Software</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="user_guide.html#hipsr-server-py">hipsr-server.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="user_guide.html#hipsr-gui-py">hipsr-gui.py</a></li>
-<li class="toctree-l3"><a class="reference internal" href="user_guide.html#hipsr-writer-py">hipsr-writer.py</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">HIPSR Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#hardware">Hardware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#software">Software</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#hipsr-server-py">hipsr-server.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#hipsr-gui-py">hipsr-gui.py</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#hipsr-writer-py">hipsr-writer.py</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="user_guide.html#how-everything-fits-together">How everything fits together</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#how-everything-fits-together">How everything fits together</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide.html">HIPSR User&#8217;s Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="user_guide.html#observing-with-hipsr">Observing with HIPSR</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="user_guide.html#starting-observations">Starting observations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="user_guide.html#checking-your-setup">Checking your setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="user_guide.html#stopping-observations">Stopping observations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="user_guide.html#getting-your-data">Getting your data</a></li>
 </ul>
@@ -126,21 +128,11 @@
 <li class="toctree-l2"><a class="reference internal" href="hardware.html#cabling">Cabling</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="software.html">Software</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="software.html#hipsr-server-py">hipsr_server.py</a></li>
-<li class="toctree-l2"><a class="reference internal" href="software.html#hipsr-gui-py">hipsr_gui.py</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="software.html#requirements">Requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="software.html#todo">TODO:</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="software.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gateware.html">Gateware</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="gateware.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gateware.html#spectral-line-modes">Spectral line modes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gateware.html#hipsr-wideband-spectrometer">HIPSR Wideband Spectrometer</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="gateware.html#hispec-8192-wideband-spectrometer">HISPEC-8192 Wideband Spectrometer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gateware.html#hispec-zoom-gpu-spectrometer">HISPEC-zoom GPU Spectrometer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gateware.html#pulsar-modes">Pulsar modes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="gateware.html#adc-to-ten-gigabit-ethernet">ADC to Ten Gigabit Ethernet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="gateware.html#parkes-spectrometer-parspec">Parkes Spectrometer (Parspec)</a></li>
@@ -174,7 +166,7 @@
 <li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
 </ul>
 <div class="figure align-center">
-<img alt="HIPSR documentation" src="_images/parkes_focus.jpg" style="width: 300px;" />
+<a class="reference internal image-reference" href="_images/parkes_focus.jpg"><img alt="HIPSR documentation" src="_images/parkes_focus.jpg" style="width: 300px;" /></a>
 </div>
 </div>
 
@@ -197,14 +189,14 @@
           <a href="np-modindex.html" title="Python Module Index"
              >modules</a> |</li>
         <li class="right" >
-          <a href="user_guide.html" title="HIPSR User’s Guide"
+          <a href="overview.html" title="HIPSR Overview"
              >next</a> |</li>
         <li><a href="#">HIPSR 1.0 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2011, Danny Price.
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.Theme by <a href="http://github.com/vkvn">vkvn</a>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.Theme by <a href="http://github.com/vkvn">vkvn</a>
     </div>
   </body>
 </html>

@@ -137,6 +137,7 @@ Cabling
 -------
 
 In March 2012, the HIPSR hardware was installed into RFI shielded racks R and S, located on the second floor of the Parkes 64m telescope building (this room lies underneath the telescope dish). 
+
 * A set of BNC cables were laid under the floor from the existing multibeam IF distribution panel to BNC feedthroughs installed on the racks. 
 * Another set of cables connect the BNC feedthrough to the SMA input of the iADC cards. 
 * A third set of cables connects the 1PPS input of the iADC to a PPS distribution unit, and a clock signal is distributed to each board by a fourth set of SMA cables. 

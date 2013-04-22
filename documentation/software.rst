@@ -5,10 +5,9 @@
 Software
 ========
 
-.. automodule:: hipsr_server
+.. automodule:: hipsr_core
     :members:
 
-.. automodule:: hipsr_gui
-    :members:
+
 
 

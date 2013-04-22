@@ -17,10 +17,11 @@ import sys, os
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #sys.path.insert(0, os.path.abspath('.'))
-sys.path.insert(0, os.path.abspath('../software'))
-sys.path.insert(0, os.path.abspath('../software/dev/hipsr-server'))
-sys.path.insert(0, os.path.abspath('../software/dev/hipsr-gui'))
-sys.path.insert(0, os.path.abspath('../software/dev/lib'))
+sys.path.insert(0, os.path.abspath('../hipsr_viewer'))
+sys.path.insert(0, os.path.abspath('../hipsr_reduction'))
+sys.path.insert(0, os.path.abspath('../hipsr_server'))
+sys.path.insert(0, os.path.abspath('../hipsr_gui'))
+sys.path.insert(0, os.path.abspath('../hipsr_core'))
 # -- General configuration -----------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.

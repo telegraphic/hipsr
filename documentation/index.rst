@@ -13,6 +13,7 @@ HIPSR is a new reconfigurable digital backend for the Parkes multibeam receiver.
 Contents:
 
 .. toctree::
+    overview
     user_guide
     hardware
     software
