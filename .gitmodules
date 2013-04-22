@@ -1,1 +1,19 @@
+[submodule "hipsr_core"]
+	path = hipsr_core
+	url = git@github.com:telegraphic/hipsr_core.git
+[submodule "hipsr_gui"]
+	path = hipsr_gui
+	url = git@github.com:telegraphic/hipsr_gui.git
+[submodule "hipsr_server"]
+	path = hipsr_server
+	url = git@github.com:telegraphic/hipsr_server.git
+[submodule "hipsr_viewer"]
+	path = hipsr_viewer
+	url = git@github.com:telegraphic/hipsr_server.git
+[submodule "hipsr_reduction"]
+	path = hipsr_reduction
+	url = git@github.com:telegraphic/hipsr_reduction.git
 
+[submodule "hipsr_gateware"]
+	path = hipsr_gateware
+	url = git@github.com:telegraphic/hipsr_gateware.git
