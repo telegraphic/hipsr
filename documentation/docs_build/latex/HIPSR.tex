@@ -3,6 +3,7 @@
 \documentclass[letterpaper,10pt,english]{sphinxmanual}
 \usepackage[utf8]{inputenc}
 \DeclareUnicodeCharacter{00A0}{\nobreakspace}
+\usepackage{cmap}
 \usepackage[T1]{fontenc}
 \usepackage{babel}
 \usepackage{times}
@@ -13,7 +14,7 @@
 
 
 \title{HIPSR Documentation}
-\date{October 30, 2012}
+\date{June 09, 2013}
 \release{1.0}
 \author{Danny Price}
 \newcommand{\sphinxlogo}{}
@@ -31,75 +32,81 @@
     \PYG@it{\PYG@bf{\PYG@ff{#1}}}}}}}
 \def\PYG#1#2{\PYG@reset\PYG@toks#1+\relax+\PYG@do{#2}}
 
-\def\PYG@tok@gd{\def\PYG@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
-\def\PYG@tok@gu{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
-\def\PYG@tok@gt{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.25,0.82}{##1}}}
-\def\PYG@tok@gs{\let\PYG@bf=\textbf}
-\def\PYG@tok@gr{\def\PYG@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
-\def\PYG@tok@cm{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
-\def\PYG@tok@vg{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\def\PYG@tok@m{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\def\PYG@tok@mh{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\def\PYG@tok@cs{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}\def\PYG@bc##1{\colorbox[rgb]{1.00,0.94,0.94}{##1}}}
-\def\PYG@tok@ge{\let\PYG@it=\textit}
-\def\PYG@tok@vc{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\def\PYG@tok@il{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\def\PYG@tok@go{\def\PYG@tc##1{\textcolor[rgb]{0.19,0.19,0.19}{##1}}}
-\def\PYG@tok@cp{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\def\PYG@tok@gi{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
-\def\PYG@tok@gh{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
-\def\PYG@tok@ni{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.84,0.33,0.22}{##1}}}
-\def\PYG@tok@nl{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.13,0.44}{##1}}}
-\def\PYG@tok@nn{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
-\def\PYG@tok@no{\def\PYG@tc##1{\textcolor[rgb]{0.38,0.68,0.84}{##1}}}
-\def\PYG@tok@na{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\def\PYG@tok@nb{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\def\PYG@tok@nc{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
-\def\PYG@tok@nd{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
-\def\PYG@tok@ne{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\def\PYG@tok@nf{\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.49}{##1}}}
-\def\PYG@tok@si{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.44,0.63,0.82}{##1}}}
-\def\PYG@tok@s2{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\def\PYG@tok@vi{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\def\PYG@tok@nt{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.45}{##1}}}
-\def\PYG@tok@nv{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
-\def\PYG@tok@s1{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\def\PYG@tok@gp{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
-\def\PYG@tok@sh{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\def\PYG@tok@ow{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\def\PYG@tok@sx{\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
-\def\PYG@tok@bp{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\def\PYG@tok@c1{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
-\def\PYG@tok@kc{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\def\PYG@tok@c{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
-\def\PYG@tok@mf{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\def\PYG@tok@err{\def\PYG@bc##1{\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{##1}}}
-\def\PYG@tok@kd{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\def\PYG@tok@ss{\def\PYG@tc##1{\textcolor[rgb]{0.32,0.47,0.09}{##1}}}
-\def\PYG@tok@sr{\def\PYG@tc##1{\textcolor[rgb]{0.14,0.33,0.53}{##1}}}
-\def\PYG@tok@mo{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\def\PYG@tok@mi{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
-\def\PYG@tok@kn{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\def\PYG@tok@o{\def\PYG@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
-\def\PYG@tok@kr{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\def\PYG@tok@s{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\def\PYG@tok@kp{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\def\PYG@tok@w{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
-\def\PYG@tok@kt{\def\PYG@tc##1{\textcolor[rgb]{0.56,0.13,0.00}{##1}}}
-\def\PYG@tok@sc{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\def\PYG@tok@sb{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\def\PYG@tok@k{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
-\def\PYG@tok@se{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
-\def\PYG@tok@sd{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@gd\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@gu\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PYG@tok@gt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PYG@tok@gs\endcsname{\let\PYG@bf=\textbf}
+\expandafter\def\csname PYG@tok@gr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@cm\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
+\expandafter\def\csname PYG@tok@vg\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@m\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@mh\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@cs\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}\def\PYG@bc##1{\setlength{\fboxsep}{0pt}\colorbox[rgb]{1.00,0.94,0.94}{\strut ##1}}}
+\expandafter\def\csname PYG@tok@ge\endcsname{\let\PYG@it=\textit}
+\expandafter\def\csname PYG@tok@vc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@il\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@go\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.20,0.20,0.20}{##1}}}
+\expandafter\def\csname PYG@tok@cp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@gi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@gh\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PYG@tok@ni\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.84,0.33,0.22}{##1}}}
+\expandafter\def\csname PYG@tok@nl\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.13,0.44}{##1}}}
+\expandafter\def\csname PYG@tok@nn\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
+\expandafter\def\csname PYG@tok@no\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.38,0.68,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@na\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@nb\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@nc\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.05,0.52,0.71}{##1}}}
+\expandafter\def\csname PYG@tok@nd\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.33,0.33,0.33}{##1}}}
+\expandafter\def\csname PYG@tok@ne\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@nf\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.49}{##1}}}
+\expandafter\def\csname PYG@tok@si\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.44,0.63,0.82}{##1}}}
+\expandafter\def\csname PYG@tok@s2\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@vi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@nt\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.02,0.16,0.45}{##1}}}
+\expandafter\def\csname PYG@tok@nv\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.38,0.84}{##1}}}
+\expandafter\def\csname PYG@tok@s1\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@gp\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
+\expandafter\def\csname PYG@tok@sh\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@ow\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@sx\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.78,0.36,0.04}{##1}}}
+\expandafter\def\csname PYG@tok@bp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@c1\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
+\expandafter\def\csname PYG@tok@kc\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@c\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.50,0.56}{##1}}}
+\expandafter\def\csname PYG@tok@mf\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@err\endcsname{\def\PYG@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PYG@tok@kd\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@ss\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.32,0.47,0.09}{##1}}}
+\expandafter\def\csname PYG@tok@sr\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.14,0.33,0.53}{##1}}}
+\expandafter\def\csname PYG@tok@mo\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@mi\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.13,0.50,0.31}{##1}}}
+\expandafter\def\csname PYG@tok@kn\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@o\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PYG@tok@kr\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@s\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@kp\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@w\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PYG@tok@kt\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.56,0.13,0.00}{##1}}}
+\expandafter\def\csname PYG@tok@sc\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@sb\endcsname{\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@k\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.00,0.44,0.13}{##1}}}
+\expandafter\def\csname PYG@tok@se\endcsname{\let\PYG@bf=\textbf\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
+\expandafter\def\csname PYG@tok@sd\endcsname{\let\PYG@it=\textit\def\PYG@tc##1{\textcolor[rgb]{0.25,0.44,0.63}{##1}}}
 
 \def\PYGZbs{\char`\\}
 \def\PYGZus{\char`\_}
 \def\PYGZob{\char`\{}
 \def\PYGZcb{\char`\}}
 \def\PYGZca{\char`\^}
+\def\PYGZam{\char`\&}
+\def\PYGZlt{\char`\<}
+\def\PYGZgt{\char`\>}
 \def\PYGZsh{\char`\#}
 \def\PYGZpc{\char`\%}
 \def\PYGZdl{\char`\$}
+\def\PYGZhy{\char`\-}
+\def\PYGZsq{\char`\'}
+\def\PYGZdq{\char`\"}
 \def\PYGZti{\char`\~}
 % for compatibility with earlier versions
 \def\PYGZat{@}
@@ -119,23 +126,8 @@ HIPSR is a new reconfigurable digital backend for the Parkes multibeam receiver.
 Contents:
 
 
-\chapter{HIPSR User's Guide}
-\label{user_guide:hipsr-hi-pulsar-signal-processor}\label{user_guide:hipsr-user-s-guide}\label{user_guide::doc}
-This User Guide gives an overview of the HIPSR system. HIPSR is the next-generation
-signal processor for the multibeam receiver. If you're reading this, you probably want
-to know how to use it.
-
-If you're in a hurry, skip down to {\hyperref[user_guide:observing-with-hipsr]{Observing with HIPSR}}. Otherwise, continue reading
-for an introduction to the HIPSR system.
-
-\begin{notice}{note}{Note:}
-If you're not familiar with the Parkes 64 m telecsope, you should have a read of
-the \href{http://www.parkes.atnf.csiro.au/observing/documentation/user\_guide/}{telescope user guide}.
-\end{notice}
-
-
-\section{Introduction}
-\label{user_guide:introduction}
+\chapter{HIPSR Overview}
+\label{overview:hipsr-hi-pulsar-signal-processor}\label{overview:hipsr-overview}\label{overview::doc}
 HIPSR is a new reconfigurable digital backend for the Parkes multibeam receiver. HIPSR is capable of running many different firmware modes, so can be used for both high resolution, wide bandwidth spectral line observations, and high time resolution pulsar observations.
 
 As of writing, there are two main modes of operations supported:
@@ -151,9 +143,12 @@ As of writing, there are two main modes of operations supported:
 The documentation here focuses on HISPEC; please head over to {[}??{]} for documentation
 on the pulsar modes.
 
+If you're in a hurry, skip down to {\hyperref[user_guide:user-guide-chapter]{\emph{HIPSR User's Guide}}}. Otherwise, continue reading
+for an introduction to the HIPSR system.
+
 
 \section{Hardware}
-\label{user_guide:hardware}
+\label{overview:hardware}
 For an in-depth overview of the HIPSR hardware, head over to the
 the {\hyperref[hardware:hardware-chapter]{\emph{Hardware}}} chapter. To give a quick overview, HIPSR consists of:
 \begin{itemize}
@@ -188,14 +183,14 @@ modes of observation will likely use the GPU servers too.
 
 
 \section{Software}
-\label{user_guide:software}
+\label{overview:software}
 If you \emph{really} want to know
 what's going on, the module listing and API can be found here: {\hyperref[software:software-chapter]{\emph{Software}}}.
 A quick run-through is shown below.
 
 
 \subsection{hipsr-server.py}
-\label{user_guide:hipsr-server-py}
+\label{overview:hipsr-server-py}
 For HISPEC, all of the signal processing is done on the ROACH boards. The ROACH boards are
 controlled by a script, \emph{hipsr-server.py}, which collects data from the ROACH boards and
 metadata (e.g. pointing info) from the telescope control system (TCS). The server script then
@@ -204,7 +199,7 @@ it only collects and collates data/metadata.
 
 
 \subsection{hipsr-gui.py}
-\label{user_guide:hipsr-gui-py}
+\label{overview:hipsr-gui-py}
 Data from HISPEC can be monitored using the \emph{hipsr-gui.py} script. This script gives shows the
 bandpass from all 13 beams, and has a beam scope, waterfall plotter and total power monitor.
 \begin{figure}[htbp]
@@ -216,7 +211,7 @@ bandpass from all 13 beams, and has a beam scope, waterfall plotter and total po
 
 
 \subsection{hipsr-writer.py}
-\label{user_guide:hipsr-writer-py}
+\label{overview:hipsr-writer-py}
 The \emph{hipsr-writer.py} script converts files from HDF5 to SD-FITS. At the end of your observations, you'll want to run this as most data reduction packages don't support HDF5 yet.
 
 \begin{notice}{note}{Note:}
@@ -226,14 +221,14 @@ It is of course, already installed wherever it needs to be.
 
 
 \section{How everything fits together}
-\label{user_guide:how-everything-fits-together}\begin{figure}[htbp]
+\label{overview:how-everything-fits-together}\begin{figure}[htbp]
 \centering
 \capstart
 
 \includegraphics{hipsr-server.png}
 \caption{\emph{What's really going on.}}\end{figure}
 
-The hipsr-server collects, collates and writes data to HDF files. To do this, several threads must be run in parallel. Firstly, a connection to each ROACH board is made using \href{https://casper.berkeley.edu/wiki/KATCP}{KATCP}, a communication
+The hipsr-server collects, collates and writes data to HDF files. To do this, several threads must be run in parallel. Firstly, a connection to each ROACH board is made using {\color{red}\bfseries{}KATCP\_}, a communication
 protocol which runs over TCP/IP. Each connection runs in a separate thread. In addition to this, a
 TCP/IP server is set up to communicate with TCS, which sends ASCII command : value pairs with info
 about telescope setup, observation config and pointing detiails.
@@ -241,8 +236,20 @@ about telescope setup, observation config and pointing detiails.
 Having multiple threads all attempting to write the same HDF file isn't good. So, there's a dedicated
 HDF thread which has a data input queue, into which the KATCP and TCS threads append data. Finally,
 so we can see what's going on, TCS and KATCP threads send a subset of data over a UDP connection to
-the {\hyperref[user_guide:hipsr-gui-py]{hipsr-gui.py}} script, which is generally run on a different computer. This UDP connection sends
+the {\hyperref[overview:hipsr-gui-py]{hipsr-gui.py}} script, which is generally run on a different computer. This UDP connection sends
 python dictionaries converted into JSON.
+
+
+\chapter{HIPSR User's Guide}
+\label{user_guide:user-guide-chapter}\label{user_guide::doc}\label{user_guide:hipsr-user-s-guide}
+This User Guide gives an overview of the HIPSR system. HIPSR is the next-generation
+signal processor for the multibeam receiver. If you're reading this, you probably want
+to know how to use it.
+
+\begin{notice}{note}{Note:}
+If you're not familiar with the Parkes 64 m telecsope, you should have a read of
+the \href{http://www.parkes.atnf.csiro.au/observing/documentation/user\_guide/}{telescope user guide}.
+\end{notice}
 
 
 \section{Observing with HIPSR}
@@ -297,6 +304,25 @@ You can optionally pass the argument -p PXXX, where PXXX is your project ID, e.g
 \end{Verbatim}
 
 This might save you a few seconds.
+
+
+\subsection{Checking your setup}
+\label{user_guide:checking-your-setup}
+TODO:
+\begin{itemize}
+\item {} 
+Cable equalization
+
+\item {} 
+PKMC
+
+\item {} 
+OPERFCC
+
+\item {} 
+Cal control
+
+\end{itemize}
 
 
 \subsection{Stopping observations}
@@ -437,9 +463,9 @@ All nodes are also connected by 1GbE, through a Cisco 3750 switch. For low bandw
 
 \begin{tabulary}{\linewidth}{|L|L|}
 \hline
-\textbf{
+\textbf{\relax 
 Item
-} & \textbf{
+} & \textbf{\relax 
 Description
 }\\\hline
 
@@ -538,243 +564,23 @@ As it is not used for DSP, it does not have a GPGPU. This server runs a DHCP dae
 \section{Cabling}
 \label{hardware:cabling}
 In March 2012, the HIPSR hardware was installed into RFI shielded racks R and S, located on the second floor of the Parkes 64m telescope building (this room lies underneath the telescope dish).
-* A set of BNC cables were laid under the floor from the existing multibeam IF distribution panel to BNC feedthroughs installed on the racks.
-* Another set of cables connect the BNC feedthrough to the SMA input of the iADC cards.
-* A third set of cables connects the 1PPS input of the iADC to a PPS distribution unit, and a clock signal is distributed to each board by a fourth set of SMA cables.
+\begin{itemize}
+\item {} 
+A set of BNC cables were laid under the floor from the existing multibeam IF distribution panel to BNC feedthroughs installed on the racks.
+
+\item {} 
+Another set of cables connect the BNC feedthrough to the SMA input of the iADC cards.
+
+\item {} 
+A third set of cables connects the 1PPS input of the iADC to a PPS distribution unit, and a clock signal is distributed to each board by a fourth set of SMA cables.
+
+\end{itemize}
 
 Each server node and ROACH board is connected to a 1GbE switch by an Ethernet cable (CAT-5E STP). Similarly, each server node and ROACH is connected to a 10GbE switch via CX4 type cables.
 
 
 \chapter{Software}
-\label{software:module-hipsr_server}\label{software:software}\label{software::doc}\label{software:software-chapter}\index{hipsr\_server (module)}
-
-\section{hipsr\_server.py}
-\label{software:hipsr-server-py}
-HIPSR wideband spectrometer server script. This script reprograms and reconfigures the roach
-boards, creates a data file, and then begins collecting data from TCS and the roach boards.
-
-A seperate thread is created for each roach board, so that reading and writing data can be done
-in parallel. In addition, there is a thread which acts as a server that listend for TCS messages.
-To write to the HDF data file, these threads append an I/O requests to a FIFO (Queue.Queue) which
-is constantly checked by yet another thread.
-
-Created by Danny Price on 2011-10-05.
-Copyright (c) 2012 The HIPSR collaboration. All rights reserved.
-\index{DataFetcher (class in hipsr\_server)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_server.DataFetcher}\pysiglinewithargsret{\strong{class }\code{hipsr\_server.}\bfcode{DataFetcher}}{\emph{queue}}{}
-Thread worker function for retrieving data from roach boards
-\paragraph{Methods}
-\index{run() (hipsr\_server.DataFetcher method)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_server.DataFetcher.run}\pysiglinewithargsret{\bfcode{run}}{}{}
-Thread run method. Fetch data from roach
-
-\end{fulllineitems}
-
-
-\end{fulllineitems}
-
-\index{Logger (class in hipsr\_server)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_server.Logger}\pysiglinewithargsret{\strong{class }\code{hipsr\_server.}\bfcode{Logger}}{\emph{filename}, \emph{filepath}}{}
-Logger which records the output of stdin to file
-\paragraph{Methods}
-
-\end{fulllineitems}
-
-\index{createNewFile() (in module hipsr\_server)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_server.createNewFile}\pysiglinewithargsret{\code{hipsr\_server.}\bfcode{createNewFile}}{}{}
-Closes current file and creates a new one
-
-\end{fulllineitems}
-
-\index{getSpectraThreaded() (in module hipsr\_server)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_server.getSpectraThreaded}\pysiglinewithargsret{\code{hipsr\_server.}\bfcode{getSpectraThreaded}}{\emph{fpgalist}, \emph{queue}}{}
-Retrieves spectral data from multiple roach boards
-
-Spawns multiple threads, with each thread retrieving from a single board.
-A queue is used to block until all threads have completed.
-
-\end{fulllineitems}
-
-\index{hdfWriter() (in module hipsr\_server)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_server.hdfWriter}\pysiglinewithargsret{\code{hipsr\_server.}\bfcode{hdfWriter}}{}{}
-Worker thread that writes to HDF files
-
-\end{fulllineitems}
-
-\index{tcsServer() (in module hipsr\_server)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_server.tcsServer}\pysiglinewithargsret{\code{hipsr\_server.}\bfcode{tcsServer}}{}{}
-A TCP server which listens for TCS commands and parses them
-
-\end{fulllineitems}
-
-\index{toJson() (in module hipsr\_server)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_server.toJson}\pysiglinewithargsret{\code{hipsr\_server.}\bfcode{toJson}}{\emph{npDict}}{}
-Converts a dictionary of numpy arrays into a dictionary of lists.
-
-\end{fulllineitems}
-
-\phantomsection\label{software:module-hipsr_gui}\index{hipsr\_gui (module)}
-
-\section{hipsr\_gui.py}
-\label{software:hipsr-gui-py}
-This script starts a Qt4 + matplotlib based graphical user interface for monitoring HIPSR's data output.
-
-
-\subsection{Requirements}
-\label{software:requirements}
-PySide (or PyQt), for Qt4 bindings
-numpy, matplotlib.
-
-
-\subsection{TODO:}
-\label{software:todo}\begin{itemize}
-\item {} 
-Zoom in on selected area
-
-\item {} 
-Tabbed versions
-
-\item {} 
-Pause \& explore plot
-
-\item {} 
-save image
-
-\item {} 
-show which beam is which
-
-\end{itemize}
-\index{HipsrGui (class in hipsr\_gui)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_gui.HipsrGui}\pysigline{\strong{class }\code{hipsr\_gui.}\bfcode{HipsrGui}}
-HIPSR GUI class
-
-A Qt4 Widget that uses matplotlib to display data from UDP packets.
-\paragraph{Methods}
-\index{bufferUDPData() (hipsr\_gui.HipsrGui method)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_gui.HipsrGui.bufferUDPData}\pysiglinewithargsret{\bfcode{bufferUDPData}}{}{}
-A circular buffer for incoming UDP packets
-
-\end{fulllineitems}
-
-\index{createMultiBeamPlot() (hipsr\_gui.HipsrGui method)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_gui.HipsrGui.createMultiBeamPlot}\pysiglinewithargsret{\bfcode{createMultiBeamPlot}}{\emph{numchans=256}}{}
-Creates 13 subplots in a hexagonal array representing the multibeam feeds
-
-\end{fulllineitems}
-
-\index{createOverallPowerPlot() (hipsr\_gui.HipsrGui method)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_gui.HipsrGui.createOverallPowerPlot}\pysiglinewithargsret{\bfcode{createOverallPowerPlot}}{\emph{numchans=120}, \emph{beamid='beam\_01'}}{}
-Creates an overall power vs time plot.
-
-\end{fulllineitems}
-
-\index{createSingleBeamPlot() (hipsr\_gui.HipsrGui method)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_gui.HipsrGui.createSingleBeamPlot}\pysiglinewithargsret{\bfcode{createSingleBeamPlot}}{\emph{numchans=256}, \emph{beamid='beam\_01'}}{}
-Creates a single pylab plot for HIPSR data.
-
-\end{fulllineitems}
-
-\index{createWaterfallPlot() (hipsr\_gui.HipsrGui method)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_gui.HipsrGui.createWaterfallPlot}\pysiglinewithargsret{\bfcode{createWaterfallPlot}}{}{}
-Creates a single imshow plot for HIPSR data.
-
-\end{fulllineitems}
-
-\index{initUI() (hipsr\_gui.HipsrGui method)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_gui.HipsrGui.initUI}\pysiglinewithargsret{\bfcode{initUI}}{\emph{width=1200}, \emph{height=750}}{}
-Initialize the User Interface
-\begin{quote}\begin{description}
-\item[{Parameters }] \leavevmode
-\textbf{width: int} :
-\begin{quote}
-
-width of the UI, in pixels. Defaults to 1024px
-\end{quote}
-
-\textbf{height: int} :
-\begin{quote}
-
-height of the UI, in pixels. Defaults to 768px
-\end{quote}
-
-\end{description}\end{quote}
-
-\end{fulllineitems}
-
-\index{onBeamSelect() (hipsr\_gui.HipsrGui method)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_gui.HipsrGui.onBeamSelect}\pysiglinewithargsret{\bfcode{onBeamSelect}}{\emph{beam}}{}
-Beam selection combo box actions
-
-\end{fulllineitems}
-
-\index{updateAllPlots() (hipsr\_gui.HipsrGui method)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_gui.HipsrGui.updateAllPlots}\pysiglinewithargsret{\bfcode{updateAllPlots}}{}{}
-Redraw all graphs in GUI
-
-\end{fulllineitems}
-
-\index{updateOverallPowerPlot() (hipsr\_gui.HipsrGui method)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_gui.HipsrGui.updateOverallPowerPlot}\pysiglinewithargsret{\bfcode{updateOverallPowerPlot}}{\emph{key}, \emph{xx}, \emph{yy}}{}
-Update power monitor plot.
-
-\end{fulllineitems}
-
-\index{updateWaterfallPlot() (hipsr\_gui.HipsrGui method)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_gui.HipsrGui.updateWaterfallPlot}\pysiglinewithargsret{\bfcode{updateWaterfallPlot}}{\emph{new\_data}}{}
-Updates waterfall plot with new values
-
-\end{fulllineitems}
-
-\index{updateWaterfallThreshold() (hipsr\_gui.HipsrGui method)}
-
-\begin{fulllineitems}
-\phantomsection\label{software:hipsr_gui.HipsrGui.updateWaterfallThreshold}\pysiglinewithargsret{\bfcode{updateWaterfallThreshold}}{}{}
-Change the threshold value for the waterfall plot
-
-\end{fulllineitems}
-
-
-\end{fulllineitems}
-
-
+\label{software:software}\label{software::doc}\label{software:software-chapter}
 
 \chapter{Gateware}
 \label{gateware::doc}\label{gateware:gateware}
@@ -799,165 +605,52 @@ For installation instructions, see the MSSGE Toolflow page:
 \end{itemize}
 
 
-\section{Spectral line modes}
-\label{gateware:spectral-line-modes}
+\section{HISPEC-8192 Wideband Spectrometer}
+\label{gateware:hispec-8192-wideband-spectrometer}
+\textbf{Current gateware: hispec\_8192\_v2\_2013\_Apr\_18\_1730.bof}
 
-\subsection{HIPSR Wideband Spectrometer}
-\label{gateware:hipsr-wideband-spectrometer}
-\textbf{Current gateware: hipsr\_16\_2011\_Oct\_01\_0824.bof}
+This is a 400 MHz bandwidth, 8192-channel polyphase filterbank. The filterbank
+is 4-taps, with hamming-windowed coefficients. It is discussed in more detail
+in the memo below:
 
-This is a 400MHz bandwidth, 8192 channel polyphase filterbank. The filterbank
-is 4-taps, with hamming window coefficients.
-\begin{figure}[htbp]
-\centering
-\capstart
+\code{HISPEC 8192 firmware memo}.
 
-\includegraphics{PFB_response.png}
-\caption{\emph{Filterbank response for different numbers of taps. We are using 4-taps in
-this 8192 channel design.}}\end{figure}
-
-The registers that can be used to control the board logic are listed below.
-
-\begin{tabulary}{\linewidth}{|L|L|}
-\hline
-\textbf{
-Register
-} & \textbf{
-Description
-}\\\hline
-
-quant\_gain
- & 
-Gain used in quantization, accepts an eight bit
-number which sets the shift before quantisation.
-Values under 00001111 shift the data to the left;
-values over  00001111 shift the data to the right.
-\\\hline
-
-mux\_sel
- & 
-Digital noise source or the ADC? A value of 1 selects
-the digital noise source, and 0 selects the ADC input.
-\\\hline
-
-fft\_shift
- & 
-FFT shift, selects which stages of the FFT the bits are
-shifter to the left. Accepts 12 bits, one bit for each
-stage in the FFT. For example, 111111111111 shifts every
-stage, and 010101010101 shifts every second stage.
-\\\hline
-
-acc\_len
- & 
-Number of accumulations, in clock cycles. As the FPGA
-is clocked at 200MHz, and there are 8192 channels, a
-value of 24414 corresponds to 1 second. The maximum
-value is 2\textasciicircum{}18 accumulations, which gives about 10s,
-although care must be taken to ensure there is no overflow.
-\\\hline
-\end{tabulary}
-
-
-\textbf{Resource utilization summary}
-
-The design uses a fair proportion of slices and BRAMs, but there is a fair
-amount of DSP48E logic left.
+The current version also includes noise diode control for noise adding radiometer-based
+calibration.
 
 \begin{tabulary}{\linewidth}{|L|L|L|}
 \hline
-\textbf{
+\textbf{\relax 
 Logic distribution and feature utilization
-} & \textbf{} & \textbf{}\\\hline
+} & \textbf{\relax } & \textbf{\relax }\\\hline
 
 Number of occupied Slices:
  & 
-10,305 out of  14,720
+14,330 out of  14,720
  & 
-70\%
-\\\hline
-
-Number of LUT Flip Flop pairs used:
- & 
-36,261
- & \\\hline
-
-Number with an unused Flip Flop:
- & 
-2,830 out of  36,261
- & 
-7\%
-\\\hline
-
-Number with an unused LUT:
- & 
-9,846 out of  36,261
- & 
-27\%
-\\\hline
-
-Number of fully used LUT-FF pairs:
- & 
-23,585 out of  36,261
- & 
-65\%
-\\\hline
-
-Number of unique control sets:
- & 
-167
- & \\\hline
-
-Number of slice register sites lost
- &  & \\\hline
-
-to control set restrictions:
- & 
-229 out of  58,880
- & 
-1\%
+97\%
 \\\hline
 
 Number of BlockRAM/FIFO:
  & 
-191 out of     244
+244 out of     244
  & 
-78\%
-\\\hline
-
-Number using BlockRAM only:
- & 
-191
- & \\\hline
-
-Total primitives used:
- &  & \\\hline
-
-Number of 36k BlockRAM used:
- & 
-185
- & \\\hline
-
-Number of 18k BlockRAM used:
- & 
-12
- & \\\hline
-
-Total Memory used (KB):
- & 
-6,876 out of   8,784
- & 
-78\%
+100\%
 \\\hline
 
 Number of DSP48Es:
  & 
-222 out of     640
+318 out of     640
  & 
-34\%
+49\%
 \\\hline
 \end{tabulary}
 
+
+
+\section{HISPEC-zoom GPU Spectrometer}
+\label{gateware:hispec-zoom-gpu-spectrometer}
+TODO.
 
 
 \section{Pulsar modes}
@@ -979,21 +672,6 @@ into 10GE packets.
 
 \end{itemize}
 
-\begin{tabulary}{\linewidth}{|L|L|}
-\hline
-\textbf{
-Register
-} & \textbf{
-Description
-}\\\hline
-
-todo
- & 
-todo.
-\\\hline
-\end{tabulary}
-
-
 \textbf{Resource utilization summary}
 
 This design fitted onto an iBOB, so unsuprisingly isn't pushing the ROACH in any
@@ -1001,9 +679,9 @@ way.
 
 \begin{tabulary}{\linewidth}{|L|L|L|}
 \hline
-\textbf{
+\textbf{\relax 
 Logic distribution and feature utilization
-} & \textbf{} & \textbf{}\\\hline
+} & \textbf{\relax } & \textbf{\relax }\\\hline
 
 Number of occupied Slices:
  & 
@@ -1012,71 +690,12 @@ Number of occupied Slices:
 42\%
 \\\hline
 
-Number of LUT Flip Flop pairs used:
- & 
-16,637
- & \\\hline
-
-Number with an unused Flip Flop:
- & 
-6,747 out of  16,637
- & 
-40\%
-\\\hline
-
-Number with an unused LUT:
- & 
-3,378 out of  16,637
- & 
-20\%
-\\\hline
-
-Number of fully used LUT-FF pairs:
- & 
-6,512 out of  16,637
- & 
-39\%
-\\\hline
-
-Number of unique control sets:
- & 
-459
- & \\\hline
-
-Number of slice register sites lost
- &  & \\\hline
-
-to control set restrictions:
- & 
-1,041 out of  58,880
- & 
-1\%
-\\\hline
-
 Number of BlockRAM/FIFO:
  & 
 21 out of     244
  & 
 8\%
 \\\hline
-
-Number using BlockRAM only:
- & 
-21
- & \\\hline
-
-Total primitives used:
- &  & \\\hline
-
-Number of 36k BlockRAM used:
- & 
-12
- & \\\hline
-
-Number of 18k BlockRAM used:
- & 
-16
- & \\\hline
 
 Total Memory used (KB):
  & 
@@ -1100,21 +719,6 @@ spectrometer.
 
 \end{itemize}
 
-\begin{tabulary}{\linewidth}{|L|L|}
-\hline
-\textbf{
-Register
-} & \textbf{
-Description
-}\\\hline
-
-todo
- & 
-todo.
-\\\hline
-\end{tabulary}
-
-
 \textbf{Resource utilization summary}
 
 Parspec was designed and spec'd to fit onto an iBOB; now it's been ported to
@@ -1122,9 +726,9 @@ ROACH it feels positively roomy.
 
 \begin{tabulary}{\linewidth}{|L|L|L|}
 \hline
-\textbf{
+\textbf{\relax 
 Logic distribution and feature utilization
-} & \textbf{} & \textbf{}\\\hline
+} & \textbf{\relax } & \textbf{\relax }\\\hline
 
 Number of occupied Slices:
  & 
@@ -1133,77 +737,11 @@ Number of occupied Slices:
 41\%
 \\\hline
 
-Number of LUT Flip Flop pairs used:
- & 
-20,028
- & \\\hline
-
-Number with an unused Flip Flop:
- & 
-3,139 out of  20,028
- & 
-15\%
-\\\hline
-
-Number with an unused LUT:
- & 
-5,881 out of  20,028
- & 
-29\%
-\\\hline
-
-Number of fully used LUT-FF pairs:
- & 
-11,008 out of  20,028
- & 
-54\%
-\\\hline
-
-Number of unique control sets:
- & 
-349
- & \\\hline
-
-Number of slice register sites lost
- &  & \\\hline
-
-to control set restrictions:
- & 
-728 out of  58,880
- & 
-1\%
-\\\hline
-
 Number of BlockRAM/FIFO:
  & 
 85 out of     244
  & 
 34\%
-\\\hline
-
-Number using BlockRAM only:
- & 
-85
- & \\\hline
-
-Total primitives used:
- &  & \\\hline
-
-Number of 36k BlockRAM used:
- & 
-10
- & \\\hline
-
-Number of 18k BlockRAM used:
- & 
-119
- & \\\hline
-
-Total Memory used (KB):
- & 
-2,502 out of   8,784
- & 
-28\%
 \\\hline
 
 Number of DSP48Es:
@@ -1223,21 +761,21 @@ Number of DSP48Es:
 \label{ip_allocation:if-mappings}
 \begin{tabulary}{\linewidth}{|L|L|L|L|L|L|L|L|}
 \hline
-\textbf{
+\textbf{\relax 
 I
-} & \textbf{
+} & \textbf{\relax 
 Q
-} & \textbf{
+} & \textbf{\relax 
 beam ID
-} & \textbf{
+} & \textbf{\relax 
 hostname
-} & \textbf{
+} & \textbf{\relax 
 nickname
-} & \textbf{
+} & \textbf{\relax 
 Rack
-} & \textbf{
+} & \textbf{\relax 
 iADC
-} & \textbf{
+} & \textbf{\relax 
 ADC notes
 }\\\hline
 
@@ -1471,15 +1009,15 @@ TODO: Check and update
 \label{ip_allocation:ip-address-allocation}
 \begin{tabulary}{\linewidth}{|L|L|L|L|L|}
 \hline
-\textbf{
+\textbf{\relax 
 hostname
-} & \textbf{
+} & \textbf{\relax 
 nickname
-} & \textbf{
+} & \textbf{\relax 
 Eth0 MAC
-} & \textbf{
+} & \textbf{\relax 
 Eth0 IP
-} & \textbf{
+} & \textbf{\relax 
 Xport IP
 }\\\hline
 
@@ -1749,11 +1287,11 @@ TODO.
 \label{contacts::doc}\label{contacts:contacts}
 \begin{tabulary}{\linewidth}{|L|L|L|}
 \hline
-\textbf{
+\textbf{\relax 
 Contact Name
-} & \textbf{
+} & \textbf{\relax 
 Role
-} & \textbf{
+} & \textbf{\relax 
 Email
 }\\\hline
 
@@ -1871,20 +1409,6 @@ Project Engineer: GPU/GPU
 \end{figure}
 
 
-\renewcommand{\indexname}{Python Module Index}
-\begin{theindex}
-\def\bigletter#1{{\Large\sffamily#1}\nopagebreak\vspace{1mm}}
-\bigletter{h}
-\item {\texttt{hipsr\_gui}}, \pageref{software:module-hipsr_gui}
-\item {\texttt{hipsr\_server}}, \pageref{software:module-hipsr_server}
-\end{theindex}
-\renewcommand{\indexname}{Python Module Index}
-\begin{theindex}
-\def\bigletter#1{{\Large\sffamily#1}\nopagebreak\vspace{1mm}}
-\bigletter{h}
-\item {\texttt{hipsr\_gui}}, \pageref{software:module-hipsr_gui}
-\item {\texttt{hipsr\_server}}, \pageref{software:module-hipsr_server}
-\end{theindex}
 
 \renewcommand{\indexname}{Index}
 \printindex

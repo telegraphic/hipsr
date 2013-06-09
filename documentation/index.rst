@@ -6,8 +6,6 @@
 HIPSR: HI-Pulsar signal processor
 =================================
 
-
-
 HIPSR is a new reconfigurable digital backend for the Parkes multibeam receiver. HIPSR is capable of running many different firmware modes, so can be used for both high resolution, wide bandwidth spectral line observations, and high time resolution pulsar observations.
 
 Contents:
@@ -20,6 +18,7 @@ Contents:
     gateware
     ip_allocation
     noise_diode
+    calibration
     contacts
     
 

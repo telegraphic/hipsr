@@ -1,0 +1,68 @@
+.. _calibration-chapter:
+
+Flux calibration method
+=======================
+
+Firstly, we find the temperature of the noise diode through an observation of a known
+calibrator source. For frequencies between 1 GHz and 10 GHz, 1934-638 is the preferred 
+flux calibrator; its cm model is described in
+`A revised flux scale for the AT Compact Array`_ (AT Memo 39.3/040):
+
+.. code:: python
+
+    def flux1934(f):
+        """ Return 1934-638 model flux over freq
+        frequency in MHz
+        """
+        log10 = np.log10
+        x   = -30.7667 + 26.4908*log10(f) - 7.0977*(log10(f))**2 + 0.605334*(log10(f))**3
+        flux =  10**x
+        return flux
+
+
+We then find the system temperature through on and off
+source measurements (essentially a Y-factor method, see *"Microwave Engineering"*, Pozar 2004).
+    
+.. code:: python
+    
+    T_sys   = T_1934 / (P_1934 / P_blank -1) 
+    
+Once we know the system temperature, we can use a Y-factor measurement again, but this time turning
+the noise diode on and off:
+    
+.. code:: python
+    
+    T_diode = T_sys * (P_diode_on/P_diode_off - 1)
+
+In subsequent observations, we assume the noise diode temperature, and solve for T_sys
+
+.. code:: python
+    
+    T_sys = T_diode / (P_diode_on/P_diode_off -1)
+
+Data are converted from arbitrary backend units to Jy by normalizing the data then multiplying 
+through by the system temperature:
+
+.. code:: python
+
+    xx = xx / average(xx) * T_sys_x
+    yy = yy / average(yy) * T_sys_y
+    re_xy = re_xy / average(re_xy) * (T_sys_x + T_sys_y)/2
+    im_xy = im_xy / average(im_xy) * (T_sys_x + T_sys_y)/2
+
+To convert this into Stokes I, Q, U and V, we use the definition that Stokes I is the average
+of XX and YY (this is consisten with past methods):
+
+.. code:: python
+    
+    ii = (xx + yy) / 2
+    qq = (xx - yy) / 2
+    uu = re_xy
+    vv = im_xy
+
+This calibration is done by the sdfits conversion program. The sdfits program either stores
+(XX, YY), or (I,Q,U,V). It does *not* store (XX, YY, re(XY), im(XY)) as there is no fits stokes
+parameter code designated to real/imaginary cross terms.
+
+
+.. _`A revised flux scale for the AT Compact Array` : http://www.atnf.csiro.au/observers/memos/d96783~1.pdf
