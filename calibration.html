@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Flux calibration method &mdash; HIPSR 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/solar.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="HIPSR 1.0 documentation" href="index.html" />
+    <link rel="next" title="Contacts" href="contacts.html" />
+    <link rel="prev" title="Noise diode control" href="noise_diode.html" /><link href='http://fonts.googleapis.com/css?family=PT+Mono|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="_static/solarized-dark.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="contacts.html" title="Contacts"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="noise_diode.html" title="Noise diode control"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">HIPSR 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="noise_diode.html"
+                        title="previous chapter">Noise diode control</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="contacts.html"
+                        title="next chapter">Contacts</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/calibration.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="flux-calibration-method">
+<span id="calibration-chapter"></span><h1>Flux calibration method<a class="headerlink" href="#flux-calibration-method" title="Permalink to this headline">¶</a></h1>
+<p>Firstly, we find the temperature of the noise diode through an observation of a known
+calibrator source (1934-638). We then find the system temperature through on and off
+source measurements (essentially a Y-factor method, see &#8220;Microwave Engineering&#8221;, Pozar 2004).</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">T_sys</span>   <span class="o">=</span> <span class="n">T_1934</span> <span class="o">/</span> <span class="p">(</span><span class="n">P_1934</span> <span class="o">/</span> <span class="n">P_blank</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Once we know the system temperature, we can use a Y-factor measurement again, but this time turning
+the noise diode on and off:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">T_diode</span> <span class="o">=</span> <span class="n">T_sys</span> <span class="o">*</span> <span class="p">(</span><span class="n">P_diode_on</span><span class="o">/</span><span class="n">P_diode_off</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In subsequent observations, we assume the noise diode temperature, and solve for T_sys</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">T_sys</span> <span class="o">=</span> <span class="n">T_diode</span> <span class="o">/</span> <span class="p">(</span><span class="n">P_diode_on</span><span class="o">/</span><span class="n">P_diode_off</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Data are converted from arbitrary backend units to Jy by normalizing the data then multiplying
+through by the system temperature:</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">xx</span> <span class="o">=</span> <span class="n">xx</span> <span class="o">/</span> <span class="n">average</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span> <span class="o">*</span> <span class="n">T_sys_x</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="n">yy</span> <span class="o">/</span> <span class="n">average</span><span class="p">(</span><span class="n">yy</span><span class="p">)</span> <span class="o">*</span> <span class="n">T_sys_y</span>
+<span class="n">re_xy</span> <span class="o">=</span> <span class="n">re_xy</span> <span class="o">/</span> <span class="n">average</span><span class="p">(</span><span class="n">re_xy</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">T_sys_x</span> <span class="o">+</span> <span class="n">T_sys_y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">im_xy</span> <span class="o">=</span> <span class="n">im_xy</span> <span class="o">/</span> <span class="n">average</span><span class="p">(</span><span class="n">im_xy</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">T_sys_x</span> <span class="o">+</span> <span class="n">T_sys_y</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>To convert this into Stokes I, Q, U and V, we use the definition that Stokes I is the average
+of XX and YY (this is consisten with past methods):</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="n">ii</span> <span class="o">=</span> <span class="p">(</span><span class="n">xx</span> <span class="o">+</span> <span class="n">yy</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">qq</span> <span class="o">=</span> <span class="p">(</span><span class="n">xx</span> <span class="o">-</span> <span class="n">yy</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+<span class="n">uu</span> <span class="o">=</span> <span class="n">re_xy</span>
+<span class="n">vv</span> <span class="o">=</span> <span class="n">im_xy</span>
+</pre></div>
+</div>
+<p>This calibration is done by the sdfits conversion program. The sdfits program either stores
+(XX, YY), or (I,Q,U,V). It does <em>not</em> store (XX, YY, re(XY), im(XY)) as there is no fits stokes
+parameter code designated to real/imaginary cross terms.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="contacts.html" title="Contacts"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="noise_diode.html" title="Noise diode control"
+             >previous</a> |</li>
+        <li><a href="index.html">HIPSR 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Danny Price.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.Theme by <a href="http://github.com/vkvn">vkvn</a>
+    </div>
+  </body>
+</html>

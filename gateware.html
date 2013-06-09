@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -13,7 +12,7 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -36,12 +35,6 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="np-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
           <a href="ip_allocation.html" title="Roach Setup/Config"
              accesskey="N">next</a> |</li>
         <li class="right" >
@@ -56,13 +49,11 @@
   <ul>
 <li><a class="reference internal" href="#">Gateware</a><ul>
 <li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#hispec-8192-wideband-spectrometer">HISPEC-8192 Wideband Spectrometer</a></li>
+<li><a class="reference internal" href="#hispec-zoom-gpu-spectrometer">HISPEC-zoom GPU Spectrometer</a></li>
 <li><a class="reference internal" href="#pulsar-modes">Pulsar modes</a><ul>
 <li><a class="reference internal" href="#adc-to-ten-gigabit-ethernet">ADC to Ten Gigabit Ethernet</a></li>
 <li><a class="reference internal" href="#parkes-spectrometer-parspec">Parkes Spectrometer (Parspec)</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#spectral-line-modes">Spectral line modes</a><ul>
-<li><a class="reference internal" href="#hipsr-wideband-spectrometer">HIPSR Wideband Spectrometer</a></li>
 </ul>
 </li>
 </ul>
@@ -118,6 +109,47 @@ and abstracts the Xilinx implementation details behind a one-click compile inter
 <li><a class="reference external" href="https://casper.berkeley.edu/wiki/MSSGE_Toolflow">https://casper.berkeley.edu/wiki/MSSGE_Toolflow</a></li>
 </ul>
 </div>
+<div class="section" id="hispec-8192-wideband-spectrometer">
+<h2>HISPEC-8192 Wideband Spectrometer<a class="headerlink" href="#hispec-8192-wideband-spectrometer" title="Permalink to this headline">¶</a></h2>
+<p><strong>Current gateware: hispec_8192_v2_2013_Apr_18_1730.bof</strong></p>
+<p>This is a 400 MHz bandwidth, 8192-channel polyphase filterbank. The filterbank
+is 4-taps, with hamming-windowed coefficients. It is discussed in more detail
+in the memo below:</p>
+<p><a class="reference download internal" href="_downloads/spectrometers_report.pdf"><tt class="xref download docutils literal"><span class="pre">HISPEC</span> <span class="pre">8192</span> <span class="pre">firmware</span> <span class="pre">memo</span></tt></a>.</p>
+<p>The current version also includes noise diode control for noise adding radiometer-based
+calibration.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="59%" />
+<col width="32%" />
+<col width="8%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Logic distribution and feature utilization</th>
+<th class="head">&nbsp;</th>
+<th class="head">&nbsp;</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Number of occupied Slices:</td>
+<td>14,330 out of  14,720</td>
+<td>97%</td>
+</tr>
+<tr class="row-odd"><td>Number of BlockRAM/FIFO:</td>
+<td>244 out of     244</td>
+<td>100%</td>
+</tr>
+<tr class="row-even"><td>Number of DSP48Es:</td>
+<td>318 out of     640</td>
+<td>49%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hispec-zoom-gpu-spectrometer">
+<h2>HISPEC-zoom GPU Spectrometer<a class="headerlink" href="#hispec-zoom-gpu-spectrometer" title="Permalink to this headline">¶</a></h2>
+<p>TODO.</p>
+</div>
 <div class="section" id="pulsar-modes">
 <h2>Pulsar modes<a class="headerlink" href="#pulsar-modes" title="Permalink to this headline">¶</a></h2>
 <p>The CASPSR firmware is based on the Packetized Astronomy Signal Processor
@@ -131,22 +163,6 @@ into 10GE packets.</p>
 <ul class="simple">
 <li><a class="reference external" href="https://casper.berkeley.edu/wiki/Packetized_Astronomy_Signal_Processor">https://casper.berkeley.edu/wiki/Packetized_Astronomy_Signal_Processor</a></li>
 </ul>
-<table border="1" class="docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Register</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>todo</td>
-<td>todo.</td>
-</tr>
-</tbody>
-</table>
 <p><strong>Resource utilization summary</strong></p>
 <p>This design fitted onto an iBOB, so unsuprisingly isn&#8217;t pushing the ROACH in any
 way.</p>
@@ -167,55 +183,11 @@ way.</p>
 <td>6,258 out of  14,720</td>
 <td>42%</td>
 </tr>
-<tr class="row-odd"><td>Number of LUT Flip Flop pairs used:</td>
-<td>16,637</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>Number with an unused Flip Flop:</td>
-<td>6,747 out of  16,637</td>
-<td>40%</td>
-</tr>
-<tr class="row-odd"><td>Number with an unused LUT:</td>
-<td>3,378 out of  16,637</td>
-<td>20%</td>
-</tr>
-<tr class="row-even"><td>Number of fully used LUT-FF pairs:</td>
-<td>6,512 out of  16,637</td>
-<td>39%</td>
-</tr>
-<tr class="row-odd"><td>Number of unique control sets:</td>
-<td>459</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>Number of slice register sites lost</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>to control set restrictions:</td>
-<td>1,041 out of  58,880</td>
-<td>1%</td>
-</tr>
-<tr class="row-even"><td>Number of BlockRAM/FIFO:</td>
+<tr class="row-odd"><td>Number of BlockRAM/FIFO:</td>
 <td>21 out of     244</td>
 <td>8%</td>
 </tr>
-<tr class="row-odd"><td>Number using BlockRAM only:</td>
-<td>21</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>Total primitives used:</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>Number of 36k BlockRAM used:</td>
-<td>12</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>Number of 18k BlockRAM used:</td>
-<td>16</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>Total Memory used (KB):</td>
+<tr class="row-even"><td>Total Memory used (KB):</td>
 <td>720 out of   8,784</td>
 <td>8%</td>
 </tr>
@@ -230,22 +202,6 @@ spectrometer.</p>
 <ul class="simple">
 <li><a class="reference external" href="https://casper.berkeley.edu/wiki/Parspec">https://casper.berkeley.edu/wiki/Parspec</a></li>
 </ul>
-<table border="1" class="docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Register</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>todo</td>
-<td>todo.</td>
-</tr>
-</tbody>
-</table>
 <p><strong>Resource utilization summary</strong></p>
 <p>Parspec was designed and spec&#8217;d to fit onto an iBOB; now it&#8217;s been ported to
 ROACH it feels positively roomy.</p>
@@ -266,190 +222,13 @@ ROACH it feels positively roomy.</p>
 <td>6,171 out of  14,720</td>
 <td>41%</td>
 </tr>
-<tr class="row-odd"><td>Number of LUT Flip Flop pairs used:</td>
-<td>20,028</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>Number with an unused Flip Flop:</td>
-<td>3,139 out of  20,028</td>
-<td>15%</td>
-</tr>
-<tr class="row-odd"><td>Number with an unused LUT:</td>
-<td>5,881 out of  20,028</td>
-<td>29%</td>
-</tr>
-<tr class="row-even"><td>Number of fully used LUT-FF pairs:</td>
-<td>11,008 out of  20,028</td>
-<td>54%</td>
-</tr>
-<tr class="row-odd"><td>Number of unique control sets:</td>
-<td>349</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>Number of slice register sites lost</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>to control set restrictions:</td>
-<td>728 out of  58,880</td>
-<td>1%</td>
-</tr>
-<tr class="row-even"><td>Number of BlockRAM/FIFO:</td>
+<tr class="row-odd"><td>Number of BlockRAM/FIFO:</td>
 <td>85 out of     244</td>
 <td>34%</td>
-</tr>
-<tr class="row-odd"><td>Number using BlockRAM only:</td>
-<td>85</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>Total primitives used:</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>Number of 36k BlockRAM used:</td>
-<td>10</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>Number of 18k BlockRAM used:</td>
-<td>119</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>Total Memory used (KB):</td>
-<td>2,502 out of   8,784</td>
-<td>28%</td>
 </tr>
 <tr class="row-even"><td>Number of DSP48Es:</td>
 <td>164 out of     640</td>
 <td>25%</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="section" id="spectral-line-modes">
-<h2>Spectral line modes<a class="headerlink" href="#spectral-line-modes" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="hipsr-wideband-spectrometer">
-<h3>HIPSR Wideband Spectrometer<a class="headerlink" href="#hipsr-wideband-spectrometer" title="Permalink to this headline">¶</a></h3>
-<p><strong>Current gateware: hipsr_16_2011_Oct_01_0824.bof</strong></p>
-<p>This is a 400MHz bandwidth, 8192 channel polyphase filterbank. The filterbank
-is 4-taps, with hamming window coefficients.</p>
-<div class="figure align-center">
-<img alt="PFB response vs FFT response" src="_images/PFB_response.png" style="width: 650px;" />
-<p class="caption"><em>Filterbank response for different numbers of taps. We are using 4-taps in
-this 8192 channel design.</em></p>
-</div>
-<p>The registers that can be used to control the board logic are listed below.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="20%" />
-<col width="80%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Register</th>
-<th class="head">Description</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>quant_gain</td>
-<td>Gain used in quantization, accepts an eight bit
-number which sets the shift before quantisation.
-Values under 00001111 shift the data to the left;
-values over  00001111 shift the data to the right.</td>
-</tr>
-<tr class="row-odd"><td>mux_sel</td>
-<td>Digital noise source or the ADC? A value of 1 selects
-the digital noise source, and 0 selects the ADC input.</td>
-</tr>
-<tr class="row-even"><td>fft_shift</td>
-<td>FFT shift, selects which stages of the FFT the bits are
-shifter to the left. Accepts 12 bits, one bit for each
-stage in the FFT. For example, 111111111111 shifts every
-stage, and 010101010101 shifts every second stage.</td>
-</tr>
-<tr class="row-odd"><td>acc_len</td>
-<td>Number of accumulations, in clock cycles. As the FPGA
-is clocked at 200MHz, and there are 8192 channels, a
-value of 24414 corresponds to 1 second. The maximum
-value is 2^18 accumulations, which gives about 10s,
-although care must be taken to ensure there is no overflow.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Resource utilization summary</strong></p>
-<p>The design uses a fair proportion of slices and BRAMs, but there is a fair
-amount of DSP48E logic left.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="59%" />
-<col width="32%" />
-<col width="8%" />
-</colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Logic distribution and feature utilization</th>
-<th class="head">&nbsp;</th>
-<th class="head">&nbsp;</th>
-</tr>
-</thead>
-<tbody valign="top">
-<tr class="row-even"><td>Number of occupied Slices:</td>
-<td>10,305 out of  14,720</td>
-<td>70%</td>
-</tr>
-<tr class="row-odd"><td>Number of LUT Flip Flop pairs used:</td>
-<td>36,261</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>Number with an unused Flip Flop:</td>
-<td>2,830 out of  36,261</td>
-<td>7%</td>
-</tr>
-<tr class="row-odd"><td>Number with an unused LUT:</td>
-<td>9,846 out of  36,261</td>
-<td>27%</td>
-</tr>
-<tr class="row-even"><td>Number of fully used LUT-FF pairs:</td>
-<td>23,585 out of  36,261</td>
-<td>65%</td>
-</tr>
-<tr class="row-odd"><td>Number of unique control sets:</td>
-<td>167</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>Number of slice register sites lost</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>to control set restrictions:</td>
-<td>229 out of  58,880</td>
-<td>1%</td>
-</tr>
-<tr class="row-even"><td>Number of BlockRAM/FIFO:</td>
-<td>191 out of     244</td>
-<td>78%</td>
-</tr>
-<tr class="row-odd"><td>Number using BlockRAM only:</td>
-<td>191</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>Total primitives used:</td>
-<td>&nbsp;</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>Number of 36k BlockRAM used:</td>
-<td>185</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-even"><td>Number of 18k BlockRAM used:</td>
-<td>12</td>
-<td>&nbsp;</td>
-</tr>
-<tr class="row-odd"><td>Total Memory used (KB):</td>
-<td>6,876 out of   8,784</td>
-<td>78%</td>
-</tr>
-<tr class="row-even"><td>Number of DSP48Es:</td>
-<td>222 out of     640</td>
-<td>34%</td>
 </tr>
 </tbody>
 </table>
@@ -470,12 +249,6 @@ amount of DSP48E logic left.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="np-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
           <a href="ip_allocation.html" title="Roach Setup/Config"
              >next</a> |</li>
         <li class="right" >
@@ -486,7 +259,7 @@ amount of DSP48E logic left.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2011, Danny Price.
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.Theme by <a href="http://github.com/vkvn">vkvn</a>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.Theme by <a href="http://github.com/vkvn">vkvn</a>
     </div>
   </body>
 </html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>HIPSR Overview &mdash; HIPSR 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/solar.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="HIPSR 1.0 documentation" href="index.html" />
+    <link rel="next" title="HIPSR User’s Guide" href="user_guide.html" />
+    <link rel="prev" title="HIPSR: HI-Pulsar signal processor" href="index.html" /><link href='http://fonts.googleapis.com/css?family=PT+Mono|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+<link href="_static/solarized-dark.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="user_guide.html" title="HIPSR User’s Guide"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="HIPSR: HI-Pulsar signal processor"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">HIPSR 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">HIPSR Overview</a><ul>
+<li><a class="reference internal" href="#hardware">Hardware</a></li>
+<li><a class="reference internal" href="#software">Software</a><ul>
+<li><a class="reference internal" href="#hipsr-server-py">hipsr-server.py</a></li>
+<li><a class="reference internal" href="#hipsr-gui-py">hipsr-gui.py</a></li>
+<li><a class="reference internal" href="#hipsr-writer-py">hipsr-writer.py</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#how-everything-fits-together">How everything fits together</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">HIPSR: HI-Pulsar signal processor</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="user_guide.html"
+                        title="next chapter">HIPSR User&#8217;s Guide</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/overview.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hipsr-overview">
+<h1>HIPSR Overview<a class="headerlink" href="#hipsr-overview" title="Permalink to this headline">¶</a></h1>
+<p>HIPSR is a new reconfigurable digital backend for the Parkes multibeam receiver. HIPSR is capable of running many different firmware modes, so can be used for both high resolution, wide bandwidth spectral line observations, and high time resolution pulsar observations.</p>
+<p>As of writing, there are two main modes of operations supported:</p>
+<ol class="arabic simple">
+<li><strong>HISPEC</strong> 8192 channel, 400 MHz bandwidth spectrometer for HI observations.</li>
+<li><strong>BPSR</strong>   high time resolution pulsar modes, used in the HTRU survey.</li>
+</ol>
+<p>The documentation here focuses on HISPEC; please head over to [??] for documentation
+on the pulsar modes.</p>
+<p>If you&#8217;re in a hurry, skip down to <a class="reference internal" href="user_guide.html#user-guide-chapter"><em>HIPSR User&#8217;s Guide</em></a>. Otherwise, continue reading
+for an introduction to the HIPSR system.</p>
+<div class="section" id="hardware">
+<h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
+<p>For an in-depth overview of the HIPSR hardware, head over to the
+the <a class="reference internal" href="hardware.html#hardware-chapter"><em>Hardware</em></a> chapter. To give a quick overview, HIPSR consists of:</p>
+<ul class="simple">
+<li>13x dual-input CASPER iADC digitizer cards,</li>
+<li>13x CASPER ROACH FPGA digital processing boards for &#8220;low-level&#8221; signal processing</li>
+<li>A Cisco 10GbE switch for data interconnect</li>
+<li>A CPU/GPU cluster for &#8220;high-level&#8221; DSP and data storage.</li>
+</ul>
+<p>These are located in racks R, S, and T. All of the signal processing nodes in HIPSR
+are connected with Ethernet; the network architecture is shown in the figure below:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/HIPSR_arch.png"><img alt="HIPSR Architecture" src="_images/HIPSR_arch.png" style="width: 600px;" /></a>
+<p class="caption"><em>Network architecture for HIPSR.</em></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The GPU servers are mainly used for pulsar work. All of the signal processing for HISPEC
+(HI spectrometer) is currently done on the CASPER ROACH boards. Future (lower bandwidth)
+modes of observation will likely use the GPU servers too.</p>
+</div>
+</div>
+<div class="section" id="software">
+<h2>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h2>
+<p>If you <em>really</em> want to know
+what&#8217;s going on, the module listing and API can be found here: <a class="reference internal" href="software.html#software-chapter"><em>Software</em></a>.
+A quick run-through is shown below.</p>
+<div class="section" id="hipsr-server-py">
+<h3>hipsr-server.py<a class="headerlink" href="#hipsr-server-py" title="Permalink to this headline">¶</a></h3>
+<p>For HISPEC, all of the signal processing is done on the ROACH boards. The ROACH boards are
+controlled by a script, <em>hipsr-server.py</em>, which collects data from the ROACH boards and
+metadata (e.g. pointing info) from the telescope control system (TCS). The server script then
+writes the data to HDF5 files. Note that <em>hipsr-server.py</em> does not control telescope pointing,
+it only collects and collates data/metadata.</p>
+</div>
+<div class="section" id="hipsr-gui-py">
+<h3>hipsr-gui.py<a class="headerlink" href="#hipsr-gui-py" title="Permalink to this headline">¶</a></h3>
+<p>Data from HISPEC can be monitored using the <em>hipsr-gui.py</em> script. This script gives shows the
+bandpass from all 13 beams, and has a beam scope, waterfall plotter and total power monitor.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/hipsr-gui.jpg"><img alt="HIPSR GUI screenshot" src="_images/hipsr-gui.jpg" style="width: 600px;" /></a>
+<p class="caption"><em>Screenshot of hipsr-gui running on Mac OSX.</em></p>
+</div>
+</div>
+<div class="section" id="hipsr-writer-py">
+<h3>hipsr-writer.py<a class="headerlink" href="#hipsr-writer-py" title="Permalink to this headline">¶</a></h3>
+<p>The <em>hipsr-writer.py</em> script converts files from HDF5 to SD-FITS. At the end of your observations, you&#8217;ll want to run this as most data reduction packages don&#8217;t support HDF5 yet.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All firmware and software for HIPSR is stored on github: <a class="reference external" href="https://github.com/telegraphic/hipsr">https://github.com/telegraphic/hipsr</a>.
+It is of course, already installed wherever it needs to be.</p>
+</div>
+</div>
+</div>
+<div class="section" id="how-everything-fits-together">
+<h2>How everything fits together<a class="headerlink" href="#how-everything-fits-together" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/hipsr-server.png"><img alt="HIPSR server software" src="_images/hipsr-server.png" style="width: 500px;" /></a>
+<p class="caption"><em>What&#8217;s really going on.</em></p>
+</div>
+<p>The hipsr-server collects, collates and writes data to HDF files. To do this, several threads must be run in parallel. Firstly, a connection to each ROACH board is made using <a href="#id1"><span class="problematic" id="id2">KATCP_</span></a>, a communication
+protocol which runs over TCP/IP. Each connection runs in a separate thread. In addition to this, a
+TCP/IP server is set up to communicate with TCS, which sends ASCII command : value pairs with info
+about telescope setup, observation config and pointing detiails.</p>
+<p>Having multiple threads all attempting to write the same HDF file isn&#8217;t good. So, there&#8217;s a dedicated
+HDF thread which has a data input queue, into which the KATCP and TCS threads append data. Finally,
+so we can see what&#8217;s going on, TCS and KATCP threads send a subset of data over a UDP connection to
+the <a class="reference internal" href="#hipsr-gui-py">hipsr-gui.py</a> script, which is generally run on a different computer. This UDP connection sends
+python dictionaries converted into JSON.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="user_guide.html" title="HIPSR User’s Guide"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="HIPSR: HI-Pulsar signal processor"
+             >previous</a> |</li>
+        <li><a href="index.html">HIPSR 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Danny Price.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.Theme by <a href="http://github.com/vkvn">vkvn</a>
+    </div>
+  </body>
+</html>

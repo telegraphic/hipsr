@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -13,7 +12,7 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -35,12 +34,6 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="np-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
         <li class="right" >
           <a href="software.html" title="Software"
              accesskey="N">next</a> |</li>
@@ -109,7 +102,7 @@ interconnect; and, a CPU/GPU cluster for &#8220;high-level&#8221; DSP and data s
 <div class="section" id="hipsr-packetized-architecture">
 <h2>HIPSR Packetized Architecture<a class="headerlink" href="#hipsr-packetized-architecture" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-center">
-<img alt="HIPSR Architecture" src="_images/HIPSR_arch.png" style="width: 500px;" />
+<a class="reference internal image-reference" href="_images/HIPSR_arch.png"><img alt="HIPSR Architecture" src="_images/HIPSR_arch.png" style="width: 500px;" /></a>
 <p class="caption"><em>Network architecture for HIPSR.</em></p>
 </div>
 <p>The HIPSR system may be described as a multi-node DSP <a href="#id1"><span class="problematic" id="id2">`</span></a>frontend&#8217; connected to a multi-node DSP <a href="#id3"><span class="problematic" id="id4">`</span></a>backend&#8217; by a 10Gb Ethernet (10GbE) switch. In the HIPSR system detailed here, DSP tasks are divided between FPGAs and GPGPUs as appropriate. The FPGA based DSP frontend conducts signal processing tasks such as signal filtering and channelization; the GPGPU based DSP backend performs higher-level, moderate- to low- bandwidth DSP such as running pulsar processing pipelines. A diagram of the system archiecture is shown below.</p>
@@ -118,7 +111,7 @@ interconnect; and, a CPU/GPU cluster for &#8220;high-level&#8221; DSP and data s
 <div class="section" id="casper-roach-boards">
 <h2>CASPER ROACH boards<a class="headerlink" href="#casper-roach-boards" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-center">
-<img alt="HIPSR Architecture" src="_images/ROACH_IO.png" style="width: 500px;" />
+<a class="reference internal image-reference" href="_images/ROACH_IO.png"><img alt="HIPSR Architecture" src="_images/ROACH_IO.png" style="width: 500px;" /></a>
 <p class="caption"><em>Roach Input/Output</em></p>
 </div>
 <p>ROACH (Reconfigurable Open Architecture Computing Hardware) is a standalone
@@ -231,10 +224,12 @@ in each chassis)</td>
 </div>
 <div class="section" id="cabling">
 <h2>Cabling<a class="headerlink" href="#cabling" title="Permalink to this headline">¶</a></h2>
-<p>In March 2012, the HIPSR hardware was installed into RFI shielded racks R and S, located on the second floor of the Parkes 64m telescope building (this room lies underneath the telescope dish).
-* A set of BNC cables were laid under the floor from the existing multibeam IF distribution panel to BNC feedthroughs installed on the racks.
-* Another set of cables connect the BNC feedthrough to the SMA input of the iADC cards.
-* A third set of cables connects the 1PPS input of the iADC to a PPS distribution unit, and a clock signal is distributed to each board by a fourth set of SMA cables.</p>
+<p>In March 2012, the HIPSR hardware was installed into RFI shielded racks R and S, located on the second floor of the Parkes 64m telescope building (this room lies underneath the telescope dish).</p>
+<ul class="simple">
+<li>A set of BNC cables were laid under the floor from the existing multibeam IF distribution panel to BNC feedthroughs installed on the racks.</li>
+<li>Another set of cables connect the BNC feedthrough to the SMA input of the iADC cards.</li>
+<li>A third set of cables connects the 1PPS input of the iADC to a PPS distribution unit, and a clock signal is distributed to each board by a fourth set of SMA cables.</li>
+</ul>
 <p>Each server node and ROACH board is connected to a 1GbE switch by an Ethernet cable (CAT-5E STP). Similarly, each server node and ROACH is connected to a 10GbE switch via CX4 type cables.</p>
 </div>
 </div>
@@ -252,12 +247,6 @@ in each chassis)</td>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="np-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
           <a href="software.html" title="Software"
              >next</a> |</li>
         <li class="right" >
@@ -268,7 +257,7 @@ in each chassis)</td>
     </div>
     <div class="footer">
         &copy; Copyright 2011, Danny Price.
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.Theme by <a href="http://github.com/vkvn">vkvn</a>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.Theme by <a href="http://github.com/vkvn">vkvn</a>
     </div>
   </body>
 </html>

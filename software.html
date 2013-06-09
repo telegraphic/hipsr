@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -13,7 +12,7 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -36,12 +35,6 @@
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="np-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
           <a href="gateware.html" title="Gateware"
              accesskey="N">next</a> |</li>
         <li class="right" >
@@ -52,19 +45,6 @@
     </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Software</a><ul>
-<li><a class="reference internal" href="#hipsr-server-py">hipsr_server.py</a></li>
-<li><a class="reference internal" href="#hipsr-gui-py">hipsr_gui.py</a><ul>
-<li><a class="reference internal" href="#requirements">Requirements</a></li>
-<li><a class="reference internal" href="#todo">TODO:</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
   <h4>Previous topic</h4>
   <p class="topless"><a href="hardware.html"
                         title="previous chapter">Hardware</a></p>
@@ -97,180 +77,8 @@
         <div class="bodywrapper">
           <div class="body">
             
-  <div class="section" id="module-hipsr_server">
-<span id="software"></span><span id="software-chapter"></span><h1>Software<a class="headerlink" href="#module-hipsr_server" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="hipsr-server-py">
-<h2>hipsr_server.py<a class="headerlink" href="#hipsr-server-py" title="Permalink to this headline">¶</a></h2>
-<p>HIPSR wideband spectrometer server script. This script reprograms and reconfigures the roach
-boards, creates a data file, and then begins collecting data from TCS and the roach boards.</p>
-<p>A seperate thread is created for each roach board, so that reading and writing data can be done
-in parallel. In addition, there is a thread which acts as a server that listend for TCS messages.
-To write to the HDF data file, these threads append an I/O requests to a FIFO (Queue.Queue) which
-is constantly checked by yet another thread.</p>
-<p>Created by Danny Price on 2011-10-05.
-Copyright (c) 2012 The HIPSR collaboration. All rights reserved.</p>
-<dl class="class">
-<dt id="hipsr_server.DataFetcher">
-<em class="property">class </em><tt class="descclassname">hipsr_server.</tt><tt class="descname">DataFetcher</tt><big>(</big><em>queue</em><big>)</big><a class="headerlink" href="#hipsr_server.DataFetcher" title="Permalink to this definition">¶</a></dt>
-<dd><p>Thread worker function for retrieving data from roach boards</p>
-<p class="rubric">Methods</p>
-<dl class="method">
-<dt id="hipsr_server.DataFetcher.run">
-<tt class="descname">run</tt><big>(</big><big>)</big><a class="headerlink" href="#hipsr_server.DataFetcher.run" title="Permalink to this definition">¶</a></dt>
-<dd><p>Thread run method. Fetch data from roach</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="hipsr_server.Logger">
-<em class="property">class </em><tt class="descclassname">hipsr_server.</tt><tt class="descname">Logger</tt><big>(</big><em>filename</em>, <em>filepath</em><big>)</big><a class="headerlink" href="#hipsr_server.Logger" title="Permalink to this definition">¶</a></dt>
-<dd><p>Logger which records the output of stdin to file</p>
-<p class="rubric">Methods</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="hipsr_server.createNewFile">
-<tt class="descclassname">hipsr_server.</tt><tt class="descname">createNewFile</tt><big>(</big><big>)</big><a class="headerlink" href="#hipsr_server.createNewFile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Closes current file and creates a new one</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="hipsr_server.getSpectraThreaded">
-<tt class="descclassname">hipsr_server.</tt><tt class="descname">getSpectraThreaded</tt><big>(</big><em>fpgalist</em>, <em>queue</em><big>)</big><a class="headerlink" href="#hipsr_server.getSpectraThreaded" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retrieves spectral data from multiple roach boards</p>
-<p>Spawns multiple threads, with each thread retrieving from a single board.
-A queue is used to block until all threads have completed.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="hipsr_server.hdfWriter">
-<tt class="descclassname">hipsr_server.</tt><tt class="descname">hdfWriter</tt><big>(</big><big>)</big><a class="headerlink" href="#hipsr_server.hdfWriter" title="Permalink to this definition">¶</a></dt>
-<dd><p>Worker thread that writes to HDF files</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="hipsr_server.tcsServer">
-<tt class="descclassname">hipsr_server.</tt><tt class="descname">tcsServer</tt><big>(</big><big>)</big><a class="headerlink" href="#hipsr_server.tcsServer" title="Permalink to this definition">¶</a></dt>
-<dd><p>A TCP server which listens for TCS commands and parses them</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="hipsr_server.toJson">
-<tt class="descclassname">hipsr_server.</tt><tt class="descname">toJson</tt><big>(</big><em>npDict</em><big>)</big><a class="headerlink" href="#hipsr_server.toJson" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts a dictionary of numpy arrays into a dictionary of lists.</p>
-</dd></dl>
-
-</div>
-<span class="target" id="module-hipsr_gui"></span><div class="section" id="hipsr-gui-py">
-<h2>hipsr_gui.py<a class="headerlink" href="#hipsr-gui-py" title="Permalink to this headline">¶</a></h2>
-<p>This script starts a Qt4 + matplotlib based graphical user interface for monitoring HIPSR&#8217;s data output.</p>
-<div class="section" id="requirements">
-<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
-<p>PySide (or PyQt), for Qt4 bindings
-numpy, matplotlib.</p>
-</div>
-<div class="section" id="todo">
-<h3>TODO:<a class="headerlink" href="#todo" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li>Zoom in on selected area</li>
-<li>Tabbed versions</li>
-<li>Pause &amp; explore plot</li>
-<li>save image</li>
-<li>show which beam is which</li>
-</ul>
-<dl class="class">
-<dt id="hipsr_gui.HipsrGui">
-<em class="property">class </em><tt class="descclassname">hipsr_gui.</tt><tt class="descname">HipsrGui</tt><a class="headerlink" href="#hipsr_gui.HipsrGui" title="Permalink to this definition">¶</a></dt>
-<dd><p>HIPSR GUI class</p>
-<p>A Qt4 Widget that uses matplotlib to display data from UDP packets.</p>
-<p class="rubric">Methods</p>
-<dl class="method">
-<dt id="hipsr_gui.HipsrGui.bufferUDPData">
-<tt class="descname">bufferUDPData</tt><big>(</big><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.bufferUDPData" title="Permalink to this definition">¶</a></dt>
-<dd><p>A circular buffer for incoming UDP packets</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hipsr_gui.HipsrGui.createMultiBeamPlot">
-<tt class="descname">createMultiBeamPlot</tt><big>(</big><em>numchans=256</em><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.createMultiBeamPlot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates 13 subplots in a hexagonal array representing the multibeam feeds</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hipsr_gui.HipsrGui.createOverallPowerPlot">
-<tt class="descname">createOverallPowerPlot</tt><big>(</big><em>numchans=120</em>, <em>beamid='beam_01'</em><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.createOverallPowerPlot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates an overall power vs time plot.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hipsr_gui.HipsrGui.createSingleBeamPlot">
-<tt class="descname">createSingleBeamPlot</tt><big>(</big><em>numchans=256</em>, <em>beamid='beam_01'</em><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.createSingleBeamPlot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a single pylab plot for HIPSR data.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hipsr_gui.HipsrGui.createWaterfallPlot">
-<tt class="descname">createWaterfallPlot</tt><big>(</big><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.createWaterfallPlot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a single imshow plot for HIPSR data.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hipsr_gui.HipsrGui.initUI">
-<tt class="descname">initUI</tt><big>(</big><em>width=1200</em>, <em>height=750</em><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.initUI" title="Permalink to this definition">¶</a></dt>
-<dd><p>Initialize the User Interface</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters :</th><td class="field-body"><p class="first"><strong>width: int</strong> :</p>
-<blockquote>
-<div><p>width of the UI, in pixels. Defaults to 1024px</p>
-</div></blockquote>
-<p><strong>height: int</strong> :</p>
-<blockquote class="last">
-<div><p>height of the UI, in pixels. Defaults to 768px</p>
-</div></blockquote>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="hipsr_gui.HipsrGui.onBeamSelect">
-<tt class="descname">onBeamSelect</tt><big>(</big><em>beam</em><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.onBeamSelect" title="Permalink to this definition">¶</a></dt>
-<dd><p>Beam selection combo box actions</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hipsr_gui.HipsrGui.updateAllPlots">
-<tt class="descname">updateAllPlots</tt><big>(</big><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.updateAllPlots" title="Permalink to this definition">¶</a></dt>
-<dd><p>Redraw all graphs in GUI</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hipsr_gui.HipsrGui.updateOverallPowerPlot">
-<tt class="descname">updateOverallPowerPlot</tt><big>(</big><em>key</em>, <em>xx</em>, <em>yy</em><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.updateOverallPowerPlot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update power monitor plot.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hipsr_gui.HipsrGui.updateWaterfallPlot">
-<tt class="descname">updateWaterfallPlot</tt><big>(</big><em>new_data</em><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.updateWaterfallPlot" title="Permalink to this definition">¶</a></dt>
-<dd><p>Updates waterfall plot with new values</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="hipsr_gui.HipsrGui.updateWaterfallThreshold">
-<tt class="descname">updateWaterfallThreshold</tt><big>(</big><big>)</big><a class="headerlink" href="#hipsr_gui.HipsrGui.updateWaterfallThreshold" title="Permalink to this definition">¶</a></dt>
-<dd><p>Change the threshold value for the waterfall plot</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-</div>
+  <div class="section" id="software">
+<span id="software-chapter"></span><h1>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -286,12 +94,6 @@ numpy, matplotlib.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="np-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
           <a href="gateware.html" title="Gateware"
              >next</a> |</li>
         <li class="right" >
@@ -302,66 +104,7 @@ numpy, matplotlib.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2011, Danny Price.
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.Theme by <a href="http://github.com/vkvn">vkvn</a>
-    </div>
-  </body>
-</html>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="ip_allocation.html"
-                        title="previous chapter">Roach Setup/Config</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="gateware.html"
-                        title="next chapter">Gateware</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/software.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="np-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="gateware.html" title="Gateware"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="ip_allocation.html" title="Roach Setup/Config"
-             >previous</a> |</li>
-        <li><a href="index.html">HIPSR 1.0 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
-    <div class="footer">
-        &copy; Copyright 2011, Danny Price.
-      Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.Theme by <a href="http://github.com/vkvn">vkvn</a>
     </div>
   </body>
 </html>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -13,7 +12,7 @@
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '1.0',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -35,12 +34,6 @@
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="np-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
         <li class="right" >
           <a href="contacts.html" title="Contacts"
              accesskey="N">next</a> |</li>
@@ -123,18 +116,18 @@ pretty horrible.</p>
 <p>Firstly, we need to generate the signal with which to control the noise diode. This is done
 with the <strong>sq_wave_gen</strong> block:</p>
 <div class="figure align-center">
-<img alt="Square wave gen" src="_images/sq_wave_gen_2.png" style="width: 500px;" />
+<a class="reference internal image-reference" href="_images/sq_wave_gen_2.png"><img alt="Square wave gen" src="_images/sq_wave_gen_2.png" style="width: 500px;" /></a>
 <p class="caption">The <strong>sq_wave_gen</strong> block generates a boolean signal which cycles between ON (True),
 and OFF (False).</p>
 </div>
 <div class="figure align-center">
-<img alt="Square wave gen" src="_images/sq_wave_gen.png" style="width: 600px;" />
+<a class="reference internal image-reference" href="_images/sq_wave_gen.png"><img alt="Square wave gen" src="_images/sq_wave_gen.png" style="width: 600px;" /></a>
 <p class="caption">The logic inside the <strong>sq_wave_gen</strong> block, and a simulated square wave.
 This produces a boolean square wave signal of the given period.
 The period can be controlled by the <strong>period</strong> register.</p>
 </div>
 <div class="figure align-center">
-<img alt="Square wave" src="_images/nar_sq_wave.jpg" style="width: 500px;" />
+<a class="reference internal image-reference" href="_images/nar_sq_wave.jpg"><img alt="Square wave" src="_images/nar_sq_wave.jpg" style="width: 500px;" /></a>
 <p class="caption">The resulting square wave, as measured on an oscilloscope in the lab. The output of
 <strong>sq_wave_gen</strong> is tied to the GPIO headers. These can run at up to 10 MHz, and output
 a 3.3V level signal.</p>
@@ -146,7 +139,7 @@ a 3.3V level signal.</p>
 There are 16 complex channels output. The power (autocorrelation) is taken,
 then the signal is quantized down to 8 bits, in prep for the vector accumulator.</p>
 <div class="figure align-center">
-<img alt="FFT and power" src="_images/fluff_fft_quant.png" style="width: 500px;" />
+<a class="reference internal image-reference" href="_images/fluff_fft_quant.png"><img alt="FFT and power" src="_images/fluff_fft_quant.png" style="width: 500px;" /></a>
 </div>
 </div>
 <div class="section" id="demux-and-accumulation">
@@ -158,7 +151,7 @@ to a &#8216;demux&#8217; block.</p>
 short (2x8 channels), bits grow quickly. As such, the input is 8 bit, and the output is 32 bit.
 This gives 2^24 max accumulations before bit overflows can occur (might need to increase this).</p>
 <div class="figure align-center">
-<img alt="FFT and power" src="_images/demux_vacc.png" style="width: 500px;" />
+<a class="reference internal image-reference" href="_images/demux_vacc.png"><img alt="FFT and power" src="_images/demux_vacc.png" style="width: 500px;" /></a>
 </div>
 </div>
 <div class="section" id="data-readout">
@@ -168,7 +161,7 @@ This gives 2^24 max accumulations before bit overflows can occur (might need to 
 <p>After this, the signal is buffered and then fed into a shared BRAM, which can be accessed via the
 ROACH&#8217;s Power PC.</p>
 <div class="figure align-center">
-<img alt="Buffer and snap to BRAM" src="_images/buffer_snap.png" style="width: 500px;" />
+<a class="reference internal image-reference" href="_images/buffer_snap.png"><img alt="Buffer and snap to BRAM" src="_images/buffer_snap.png" style="width: 500px;" /></a>
 </div>
 </div>
 <div class="section" id="testing">
@@ -190,12 +183,6 @@ ROACH&#8217;s Power PC.</p>
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="np-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
           <a href="contacts.html" title="Contacts"
              >next</a> |</li>
         <li class="right" >
@@ -206,7 +193,7 @@ ROACH&#8217;s Power PC.</p>
     </div>
     <div class="footer">
         &copy; Copyright 2011, Danny Price.
-    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3.Theme by <a href="http://github.com/vkvn">vkvn</a>
+    Created using <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.2b1.Theme by <a href="http://github.com/vkvn">vkvn</a>
     </div>
   </body>
 </html>
