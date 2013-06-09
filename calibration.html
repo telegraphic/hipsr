@@ -80,8 +80,21 @@
   <div class="section" id="flux-calibration-method">
 <span id="calibration-chapter"></span><h1>Flux calibration method<a class="headerlink" href="#flux-calibration-method" title="Permalink to this headline">¶</a></h1>
 <p>Firstly, we find the temperature of the noise diode through an observation of a known
-calibrator source (1934-638). We then find the system temperature through on and off
-source measurements (essentially a Y-factor method, see &#8220;Microwave Engineering&#8221;, Pozar 2004).</p>
+calibrator source. For frequencies between 1 GHz and 10 GHz, 1934-638 is the preferred
+flux calibrator; its cm model is described in
+<a class="reference external" href="http://www.atnf.csiro.au/observers/memos/d96783~1.pdf">A revised flux scale for the AT Compact Array</a> (AT Memo 39.3/040):</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">flux1934</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Return 1934-638 model flux over freq</span>
+<span class="sd">    frequency in MHz</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">log10</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span>
+    <span class="n">x</span>   <span class="o">=</span> <span class="o">-</span><span class="mf">30.7667</span> <span class="o">+</span> <span class="mf">26.4908</span><span class="o">*</span><span class="n">log10</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">-</span> <span class="mf">7.0977</span><span class="o">*</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="n">f</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mf">0.605334</span><span class="o">*</span><span class="p">(</span><span class="n">log10</span><span class="p">(</span><span class="n">f</span><span class="p">))</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">flux</span> <span class="o">=</span>  <span class="mi">10</span><span class="o">**</span><span class="n">x</span>
+    <span class="k">return</span> <span class="n">flux</span>
+</pre></div>
+</div>
+<p>We then find the system temperature through on and off
+source measurements (essentially a Y-factor method, see <em>&#8220;Microwave Engineering&#8221;</em>, Pozar 2004).</p>
 <div class="code python highlight-python"><div class="highlight"><pre><span class="n">T_sys</span>   <span class="o">=</span> <span class="n">T_1934</span> <span class="o">/</span> <span class="p">(</span><span class="n">P_1934</span> <span class="o">/</span> <span class="n">P_blank</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>

@@ -4,8 +4,24 @@ Flux calibration method
 =======================
 
 Firstly, we find the temperature of the noise diode through an observation of a known
-calibrator source (1934-638). We then find the system temperature through on and off
-source measurements (essentially a Y-factor method, see "Microwave Engineering", Pozar 2004).
+calibrator source. For frequencies between 1 GHz and 10 GHz, 1934-638 is the preferred 
+flux calibrator; its cm model is described in
+`A revised flux scale for the AT Compact Array`_ (AT Memo 39.3/040):
+
+.. code:: python
+
+    def flux1934(f):
+        """ Return 1934-638 model flux over freq
+        frequency in MHz
+        """
+        log10 = np.log10
+        x   = -30.7667 + 26.4908*log10(f) - 7.0977*(log10(f))**2 + 0.605334*(log10(f))**3
+        flux =  10**x
+        return flux
+
+
+We then find the system temperature through on and off
+source measurements (essentially a Y-factor method, see *"Microwave Engineering"*, Pozar 2004).
     
 .. code:: python
     
@@ -47,3 +63,6 @@ of XX and YY (this is consisten with past methods):
 This calibration is done by the sdfits conversion program. The sdfits program either stores
 (XX, YY), or (I,Q,U,V). It does *not* store (XX, YY, re(XY), im(XY)) as there is no fits stokes
 parameter code designated to real/imaginary cross terms.
+
+
+.. _`A revised flux scale for the AT Compact Array` : http://www.atnf.csiro.au/observers/memos/d96783~1.pdf
