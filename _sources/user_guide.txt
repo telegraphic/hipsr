@@ -22,32 +22,33 @@ There are three things that must be started to observe with HIPSR:
 
     1) The telescope control system, TCS
     2) The hipsr-server script which runs on hipsr-srv0
-    3) The hipsr-gui plotter which runs on [?]
-
-To start TCS, get onto one of the Sun machines and type::
-
-    > tcs
-
-Until someone copy and paste's how to use TCS here, you'll have to consult the `telescope user guide`_.
+    3) The hipsr-gui plotter which runs on hipsr-srv0
 
 *Before* you press "go" on TCS, you first need to start the hipsr-server script. To do so,
 you need to SSH into hipsr-srv0::
 
-    > ssh [user]@hipsr-srv0(.atnf.csiro.au)
+    > ssh -Y corr@hipsr-srv0(.atnf.csiro.au)
 
-Once you've connected, change into directory /data/hipsr/hipsr-server/::
+Once you've connected, start the server with the command::
 
-    > cd /data/hipsr/hipsr-server/
-
-Finally, start the server with the command::
-
-    > ./hipsr_server.py
+    > ./hipsr-server
 
 You can optionally pass the argument -p PXXX, where PXXX is your project ID, e.g.::
 
-    > ./hipsr_server.py -p P641
+    > ./hipsr-server -p P641
     
-This might save you a few seconds.
+This might save you a few seconds. Now you're ready to start the graphical interface (GUI):
+
+    > ./hipsr-gui
+
+You should see the gui start up in a new window. 
+
+To start TCS, open a new terminal on Joffrey and type::
+
+    > tcs
+
+Until someone copy and pastes how to use TCS here, you'll have to consult the `telescope user guide`_.
+
 
 Checking your setup
 ~~~~~~~~~~~~~~~~~~~

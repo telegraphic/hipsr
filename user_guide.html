@@ -114,27 +114,27 @@ the <a class="reference external" href="http://www.parkes.atnf.csiro.au/observin
 <div><ol class="arabic simple">
 <li>The telescope control system, TCS</li>
 <li>The hipsr-server script which runs on hipsr-srv0</li>
-<li>The hipsr-gui plotter which runs on [?]</li>
+<li>The hipsr-gui plotter which runs on hipsr-srv0</li>
 </ol>
 </div></blockquote>
-<p>To start TCS, get onto one of the Sun machines and type:</p>
-<div class="highlight-python"><pre>&gt; tcs</pre>
-</div>
-<p>Until someone copy and paste&#8217;s how to use TCS here, you&#8217;ll have to consult the <a class="reference external" href="http://www.parkes.atnf.csiro.au/observing/documentation/user_guide/">telescope user guide</a>.</p>
 <p><em>Before</em> you press &#8220;go&#8221; on TCS, you first need to start the hipsr-server script. To do so,
 you need to SSH into hipsr-srv0:</p>
-<div class="highlight-python"><pre>&gt; ssh [user]@hipsr-srv0(.atnf.csiro.au)</pre>
+<div class="highlight-python"><pre>&gt; ssh -Y corr@hipsr-srv0(.atnf.csiro.au)</pre>
 </div>
-<p>Once you&#8217;ve connected, change into directory /data/hipsr/hipsr-server/:</p>
-<div class="highlight-python"><pre>&gt; cd /data/hipsr/hipsr-server/</pre>
-</div>
-<p>Finally, start the server with the command:</p>
-<div class="highlight-python"><pre>&gt; ./hipsr_server.py</pre>
+<p>Once you&#8217;ve connected, start the server with the command:</p>
+<div class="highlight-python"><pre>&gt; ./hipsr-server</pre>
 </div>
 <p>You can optionally pass the argument -p PXXX, where PXXX is your project ID, e.g.:</p>
-<div class="highlight-python"><pre>&gt; ./hipsr_server.py -p P641</pre>
+<div class="highlight-python"><pre>&gt; ./hipsr-server -p P641</pre>
 </div>
-<p>This might save you a few seconds.</p>
+<p>This might save you a few seconds. Now you&#8217;re ready to start the graphical interface (GUI):</p>
+<blockquote>
+<div>&gt; ./hipsr-gui</div></blockquote>
+<p>You should see the gui start up in a new window.</p>
+<p>To start TCS, open a new terminal on Joffrey and type:</p>
+<div class="highlight-python"><pre>&gt; tcs</pre>
+</div>
+<p>Until someone copy and pastes how to use TCS here, you&#8217;ll have to consult the <a class="reference external" href="http://www.parkes.atnf.csiro.au/observing/documentation/user_guide/">telescope user guide</a>.</p>
 </div>
 <div class="section" id="checking-your-setup">
 <h3>Checking your setup<a class="headerlink" href="#checking-your-setup" title="Permalink to this headline">¶</a></h3>

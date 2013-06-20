@@ -47,9 +47,10 @@ through by the system temperature:
 
     xx = xx / average(xx) * T_sys_x
     yy = yy / average(yy) * T_sys_y
-    re_xy = re_xy / average(re_xy) * (T_sys_x + T_sys_y)/2
-    im_xy = im_xy / average(im_xy) * (T_sys_x + T_sys_y)/2
+    re_xy = re_xy / average(re_xy) * sqrt(T_sys_x * T_sys_y)
+    im_xy = im_xy / average(im_xy) * sqrt(T_sys_x * T_sys_y)
 
+Note the use of geometric mean to compute cross-pol Tsys.
 To convert this into Stokes I, Q, U and V, we use the definition that Stokes I is the average
 of XX and YY (this is consisten with past methods):
 
