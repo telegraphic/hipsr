@@ -122,12 +122,12 @@ you need to SSH into hipsr-srv0:</p>
 <div class="highlight-python"><pre>&gt; ssh -Y corr@hipsr-srv0(.atnf.csiro.au)</pre>
 </div>
 <p>Once you&#8217;ve connected, start the server with the command:</p>
-<div class="highlight-python"><pre>&gt; ./hipsr-server</pre>
+  <div class="highlight-python"><pre>cd bin<br /></pre><pre>&gt; ./hipsr-server-200</pre>
 </div>
-<p>You can optionally pass the argument -p PXXX, where PXXX is your project ID, e.g.:</p>
-<div class="highlight-python"><pre>&gt; ./hipsr-server -p P641</pre>
+<p>Or, if you're using the 400 MHz mode, run hipsr-server-400:</p>
+<div class="highlight-python"><pre>&gt; ./hipsr-server-400</pre>
 </div>
-<p>This might save you a few seconds. Now you&#8217;re ready to start the graphical interface (GUI):</p>
+<p> Now you&#8217;re ready to start the graphical interface (GUI):</p>
 <blockquote>
 <div>&gt; ./hipsr-gui</div></blockquote>
 <p>You should see the gui start up in a new window.</p>
